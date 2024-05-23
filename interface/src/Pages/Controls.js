@@ -14,7 +14,7 @@ const Controls = () => {
 
   useEffect(() => {
     const randomType = experimentTypes[Math.floor(Math.random() * 3)];
-    navigate(`/creativity/instruct${randomType}`);
+    navigate(`/convergent/instruct${randomType}`);
     addData(randomType);
   }, [])
 
