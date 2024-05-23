@@ -1,0 +1,28 @@
+.custom-captcha {  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    font-family: Arial, sans-serif;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 50%;
+    max-height: 50%;
+    /* background-color: #7cc6fe;   */
+  }  
+    
+  .custom-captcha h2 {  
+    text-align: center;  
+  }  
+    
+  .custom-captcha canvas {  
+    /* border: 1px solid black;   */
+    margin-bottom: 10px; 
+  }  
+    
+  .custom-captcha input {  
+    padding: 5px;  
+    margin-bottom: 10px;
+  }  
+    
+
+  
