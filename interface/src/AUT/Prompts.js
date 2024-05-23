@@ -35,6 +35,7 @@ export const promptsArray = [
     ["Shoe", shoe],
     ["Table", table]
 ]
+// The arrays are ordered: ["prompt1", "prompt2", "prompt3", "answer"]
 export const easyRAT = [
     ["aid", "rubber", "wagon", "band"],
     ["flake", "mobile", "cone", "snow"],
