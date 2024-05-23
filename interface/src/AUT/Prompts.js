@@ -35,3 +35,54 @@ export const promptsArray = [
     ["Shoe", shoe],
     ["Table", table]
 ]
+export const easyRAT = [
+    ["aid", "rubber", "wagon", "band"],
+    ["flake", "mobile", "cone", "snow"],
+    ["dream", "break", "light", "day"],
+    ["fish", "mine", "rush", "gold"],
+    ["river", "note", "account", "bank"],
+    ["print", "berry", "bird", "blue"],
+    ["cadet", "capsule", "ship", "space"],
+    ["fur", "rack", "tail", "coat"],
+    ["hound", "pressure","shot", "blood"],
+    ["basket", "eight", "snow", "ball"],
+    ["mouse", "bear", "sand", "trap"],
+    ["widow", "bite", "monkey", "spider"],
+    ["gold", "stool", "tender", "bar"],
+    ["time", "hair", "stretch", "long"],
+    ["trap", "back", "screen", "door"]
+]
+export const mediumRAT = [
+    ["sense", "courtesy", "place", "common"],
+    ["flower", "friend", "scout", "girl"],
+    ["pie", "luck", "belly", "pot"],
+    ["opera", "hand", "dish", "soap"],
+    ["fox", "man", "peep", "hole"],
+    ["light", "birthday", "stick", "candle"],
+    ["peach", "arm", "tar", "pit"],
+    ["palm", "shoe", "house", "tree"],
+    ["wheel", "hand", "shopping", "cart"],
+    ["sage", "paint", "hair", "brush"],
+    ["french", "car", "shoe", "horn"],
+    ["boot", "summer", "ground", "camp"],
+    ["mill", "tooth", "dust", "saw"],
+    ["main", "sweeper", "light", "street"],
+    ["pike", "coat", "signal", "turn"],
+]
+export const hardRAT = [
+    ["right", "carbon", "cat", "copy"],
+    ["home", "sea", "sick", "bed"],
+    ["hammer", "gear", "hunter", "head"],
+    ["rain", "test", "stomach", "acid"],
+    ["cat", "number", "phone", "call"],
+    ["trip", "house", "goal", "field"],
+    ["test", "runner", "map", "road"],
+    ["man", "glue", "star", "super"],
+    ["tooth", "potato", "heart", "sweet"],
+    ["illness", "bus", "computer", "terminal"],
+    ["spoon", "cloth", "card", "table"],
+    ["note", "chain", "master", "key"],
+    ["shock", "shave", "taste", "after"],
+    ["cry", "front", "ship", "battle"],
+    ["land", "hand", "house", "farm"]
+]
