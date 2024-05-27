@@ -35,7 +35,7 @@ const Introduction = () => {
         setInputCaptcha("");  
         generateCaptchaCheck();  
         } else {  
-        navigate('/creativity/consent');  
+        navigate('/convergent/consent');  
         }  
     };  
     

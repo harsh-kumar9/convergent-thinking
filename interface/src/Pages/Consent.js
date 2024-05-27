@@ -8,7 +8,7 @@ const Consent = () => {
 
     const handleClick = () => {
         if (checked) {
-            navigate('/creativity/controls')
+            navigate('/convergent/controls')
         } else {
             alert("Please give your consent to proceed");
         }
