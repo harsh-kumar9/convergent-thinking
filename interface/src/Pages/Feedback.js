@@ -86,7 +86,7 @@ const Feedback = () => {
     
                 {/* Question 1 */}
                 <div className="text-2xl flex flex-col mb-4">
-                    <h2>1. How difficult was it to come up with uses for the last object?</h2>
+                    <h2>1. How difficult was it to come up the associated word for the last three tasks?</h2>
                     {/* Options for Question 1 */}
                     <label>
                         <input type="radio" name="q1" value="Very easy" checked={q1 === "Very easy"} onChange={(e) => setQ1(e.target.value)} className="mr-2"/>
@@ -148,40 +148,40 @@ const Feedback = () => {
                 
                 {/* Question 3 */}
                 <div className="text-2xl flex flex-col mb-4">
-                    <h2>3. How many objects in total did you encounter in this HIT?</h2>
+                    <h2>3. How many remote associate tasks in total did you encounter in this HIT?</h2>
                     {/* Options for Question 3 */}
                     <label>
                             <input 
                                 type="radio" 
                                 name="q3"
-                                value="3"
-                                checked={q3 === "3"}
+                                value="8"
+                                checked={q3 === "8"}
                                 className="mr-2"
                                 onChange={(e) => setQ3(e.target.value)} 
                             />
-                            3
+                            8
                         </label>
                         <label>
                             <input 
                                 type="radio" 
                                 name="q3"
-                                value="4"
-                                checked={q3 === "4"}
+                                value="9"
+                                checked={q3 === "9"}
                                 className="mr-2"
                                 onChange={(e) => setQ3(e.target.value)} 
                             />
-                            4
+                            9
                         </label>
                         <label>
                             <input 
                                 type="radio" 
                                 name="q3"
-                                value="5"
-                                checked={q3 === "5"}
+                                value="10"
+                                checked={q3 === "10"}
                                 className="mr-2"
                                 onChange={(e) => setQ3(e.target.value)} 
                             />
-                            5
+                            10
                         </label>
                 </div>
     
@@ -193,7 +193,7 @@ const Feedback = () => {
 
                 {/* New question */}
                 <div className="mb-4">
-                    <h2 className="text-2xl mb-2">5. What was your strategy for coming up with ideas for the last object?</h2>
+                    <h2 className="text-2xl mb-2">5. What was your strategy for coming up with associated word for the last three objects?</h2>
                     <textarea 
                         name="q5" 
                         value={q5} 

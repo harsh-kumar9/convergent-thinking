@@ -89,7 +89,7 @@ const Absent = () => {
       const shuffledHard = shuffleArray(hardRAT);
       const trialArray = [...shuffledEasy.slice(0, 2), ...shuffledMedium.slice(0, 2),...shuffledHard.slice(0, 2)]
       const testArray = [shuffledEasy[3], shuffledMedium[3], shuffledHard[3]]
-      return [...shuffleArray(trialArray), "dummy", ...shuffleArray(testArray).slice(0,2)];
+      return [...shuffleArray(trialArray), "dummy", ...shuffleArray(testArray)];
     });
     setShuffled(true);
   }, []);
@@ -126,7 +126,7 @@ const Absent = () => {
         });
       }
 
-      if (promptId === 8) {
+      if (promptId === 9) {
         addData({ HideTime: outOfFocusTime });
         navigate("/convergent/feedback");
       } else {
@@ -160,16 +160,21 @@ const Absent = () => {
         >
           <form onSubmit={handleSubmit} className="w-full">
             <div className="flex flex-row justify-between items-center mb-4 mt-8 px-3">
-              <h2 className="text-white text-4xl text-center">
-                {promptCopy[promptId][0]}, {promptCopy[promptId][1]}, {promptCopy[promptId][2]}
+              <h2 className="text-white text-lg text-center p-1">
+                For the following cue words, find a word which relates to them all. 
               </h2>
               <p className="text-white w-fit  outline outline-1  rounded-lg text-xl p-1">
                 Time: {`${Math.floor(time / 60)}`.padStart(2, 0)}:
                 {`${time % 60}`.padStart(2, 0)}
               </p>
             </div>
+            <div className="flex flex-row justify-between items-center mb-4 mt-8 px-3" style={{ backgroundColor: "rgba(71, 85, 105, 0.18)" }}>
+              <h2 className="text-white text-4xl text-center">
+                {promptCopy[promptId][0]}, {promptCopy[promptId][1]}, {promptCopy[promptId][2]}
+              </h2>
+            </div>
 
-            <div className="flex flex-row space-x-4 justify-between">
+            <div className="flex flex-row space-x-4 justify-between p-1">
               <input
                 type="text"
                 value={input}
@@ -183,7 +188,7 @@ const Absent = () => {
                 className="text-white outline outline-offset-2 outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
               />
             </div>
-            <div className="flex flex-row space-x-4 justify-between px-3">
+            <div className="flex flex-row space-x-4 justify-between p-3">
               <p className="text-white w-fit  outline outline-1  rounded-lg text-xl p-1">
                 Current answer: {idea}
               </p>
