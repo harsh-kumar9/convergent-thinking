@@ -72,7 +72,7 @@ export const mediumRAT = [
 ]
 export const hardRAT = [
     ["right", "carbon", "cat", "copy"],
-    ["home", "sea", "sick", "bed"],
+    ["home", "sea", "bed", "sick"],
     ["hammer", "gear", "hunter", "head"],
     ["rain", "test", "stomach", "acid"],
     ["cat", "number", "phone", "call"],
