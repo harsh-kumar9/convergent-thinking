@@ -151,8 +151,8 @@ const Generate = () => {
   if (!shuffled || !promptCopy.length) {
     return <div>Loading...</div>;
   }
-  let practice = "Practice";
-  let test = "Test";
+  let practice = "Practice Round:";
+  let test = "Test Round:";
   return !(promptId === 6) ? (
     <div
       style={{ backgroundImage: `url(${background})` }}
@@ -160,32 +160,41 @@ const Generate = () => {
     >
       <div className="flex flex-row space-x-4 p-4 w-full h-full place-items-center justify-center rounded-[60px]">
         <div
-          className=" rounded-[60px] bg-orange-500 flex flex-col place-items-center h-full px-4  outline outline-2 outline-white bg-slate-500"
+          className=" rounded-[60px] bg-orange-500 flex flex-col h-full px-4  outline outline-2 outline-white bg-slate-500"
           style={{ backgroundColor: "rgba(64, 64, 64, 0.17)" }}
         >
-          <div className="grid grid-cols-3 gap-11 mb-4 mt-8 px-1">
-            <span className="text-white w-fit outline outline-offset-0 outline-1 rounded-lg text-xl p-1">
-              {promptId < 6
-                ? practice.concat(" ", (promptId + 1).toString(), "/6")
-                : test.concat(" ", (promptId - 6).toString(), "/3")}
-            </span>
-            <span
-              style={{
-                backgroundColor: "rgba(0, 100, 0, .5)",
-              }}
-              className="text-white outline outline-1 rounded-lg text-4xl p-1"
-            >
-              Time: {`${Math.floor(time / 60)}`.padStart(2, 0)}:
-              {`${time % 60}`.padStart(2, 0)}
-            </span>
-            <p className="text-white w-fit justify justify-end outline outline-1 text-right rounded-lg text-xl  p-1">
-              Current answer: {idea}
-            </p>
+          <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
+            <div className="col-start-1 place-items-center">
+              <span className="text-white col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
+                {promptId < 6
+                  ? practice.concat(" ", (promptId + 1).toString(), "/6")
+                  : test.concat(" ", (promptId - 6).toString(), "/3")}
+              </span>
+            </div>
+            <div>
+              <span className="text-white justify justify-end w-fit outline outline-1 rounded-lg text-xl p-1">
+                Current answer: <strong className="underline">{idea}</strong>
+              </span>
+            </div>
+            <div className="justify justify-end">
+              <span
+                style={{
+                  backgroundColor: "rgba(0, 100, 0, .5)",
+                }}
+                className="text-white text-center outline outline-1 rounded-lg text-4xl p-1"
+              >
+                Time: {`${Math.floor(time / 60)}`.padStart(2, 0)}:
+                {`${time % 60}`.padStart(2, 0)}
+              </span>
+            </div>
           </div>
           <form
             onSubmit={handleSubmit}
             className="w-full place-items-center items-center"
           >
+            <p className="text-white text-xl mb-6 mt-3">
+              Find a fourth word that is related to all three of the following:
+            </p>
             <div
               className="mb-4 items-center grid grid-cols-2 gap-11 rounded-xl px-3"
               style={{ backgroundColor: "rgba(71, 85, 105, 0.18)" }}
@@ -197,6 +206,7 @@ const Generate = () => {
               <div className="float-right">
                 <input
                   type="text"
+                  placeholder="Enter your idea.."
                   value={input}
                   className="p-1 h-2/3 text-lg mr-5"
                   onPaste={preventDefaultAction}
