@@ -12,7 +12,6 @@ let ideasCount = 0;
 
 const Absent = () => {
   // const [input, setInput] = useState(""); // store currently inputted idea in input form
-  
 
   // const [ideaEditing, setIdeaEditing] = useState(null); // id of idea we are editing
   // const [editingText, setEditingText] = useState("");
@@ -87,8 +86,12 @@ const Absent = () => {
       const shuffledEasy = shuffleArray(easyRAT);
       const shuffledMedium = shuffleArray(mediumRAT);
       const shuffledHard = shuffleArray(hardRAT);
-      const trialArray = [...shuffledEasy.slice(0, 2), ...shuffledMedium.slice(0, 2),...shuffledHard.slice(0, 2)]
-      const testArray = [shuffledEasy[3], shuffledMedium[3], shuffledHard[3]]
+      const trialArray = [
+        ...shuffledEasy.slice(0, 2),
+        ...shuffledMedium.slice(0, 2),
+        ...shuffledHard.slice(0, 2),
+      ];
+      const testArray = [shuffledEasy[3], shuffledMedium[3], shuffledHard[3]];
       return [...shuffleArray(trialArray), "dummy", ...shuffleArray(testArray)];
     });
     setShuffled(true);
@@ -97,7 +100,7 @@ const Absent = () => {
   const handleSubmit = (e) => {
     // e is short for event
     e.preventDefault(); // prevents page from refreshing upon clicking submit
-    setIdea(input)
+    setIdea(input);
     setInput(""); // clears the input form
   };
   // timer countdown in seconds
@@ -148,50 +151,71 @@ const Absent = () => {
   if (!shuffled || !promptCopy.length) {
     return <div>Loading...</div>;
   }
+  let practice = "Practice Round:";
+  let test = "Test Round:";
   return !(promptId === 6) ? (
-    <div
-      style={{ backgroundImage: `url(${background})` }}
-      className="h-screen w-screen items-center justify-center flex text-3xl font-semibold space-y-8 p-8 bg-cover"
-    >
-      <div className="flex flex-row space-x-4 p-4 h-full w-full items-center justify-center rounded-[60px]">
+    <div className="h-screen w-screen place-items-center justify-center flex text-3xl font-semibold space-y-8 p-8 bg-cover">
+      <div className="flex flex-row space-x-4 p-4 w-full h-full place-items-center justify-center rounded-[60px]">
         <div
-          className="w-1/1 rounded-[60px] bg-orange-500 flex flex-col items-center h-full px-4  outline outline-2 outline-white bg-slate-500"
-          style={{ backgroundColor: "rgba(64, 64, 64, 0.17)" }}
+          className=" rounded-[60px] bg-orange-500 flex flex-col h-full px-4  outline outline-2 outline-white bg-slate-500"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
         >
-          <form onSubmit={handleSubmit} className="w-full">
-            <div className="flex flex-row justify-between items-center mb-4 mt-8 px-3">
-              <h2 className="text-white text-lg text-center p-1">
-                For the following cue words, find a word which relates to them all. 
-              </h2>
-              <p className="text-white w-fit  outline outline-1  rounded-lg text-xl p-1">
+          <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
+            <div className="col-start-1 place-items-center">
+              <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
+                {promptId < 6
+                  ? practice.concat(" ", (promptId + 1).toString(), "/6")
+                  : test.concat(" ", (promptId - 6).toString(), "/3")}
+              </span>
+            </div>
+            <div></div>
+            <div className="justify justify-end">
+              <span
+                style={{
+                  backgroundColor: "rgba(0, 100, 0, .5)",
+                }}
+                className="text-white text-center outline outline-1 rounded-lg text-4xl p-1"
+              >
                 Time: {`${Math.floor(time / 60)}`.padStart(2, 0)}:
                 {`${time % 60}`.padStart(2, 0)}
-              </p>
+              </span>
             </div>
-            <div className="flex flex-row justify-between items-center mb-4 mt-8 px-3" style={{ backgroundColor: "rgba(71, 85, 105, 0.18)" }}>
-              <h2 className="text-white text-4xl text-center">
-                {promptCopy[promptId][0]}, {promptCopy[promptId][1]}, {promptCopy[promptId][2]}
+          </div>
+          <form
+            onSubmit={handleSubmit}
+            className="w-full place-items-center items-center"
+          >
+            <p className="text-black text-xl mb-6 mt-3">
+              Find a fourth word that is related to all three of the following:
+            </p>
+            <div
+              className="mb-4 items-center grid grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+            >
+              <h2 className="text-black text-4xl pr-100 p-1">
+                {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
+                {promptCopy[promptId][2]}
               </h2>
-            </div>
-
-            <div className="flex flex-row space-x-4 justify-between p-1">
-              <input
-                type="text"
-                value={input}
-                className="w-2/3 p-1 text-lg"
-                onPaste={preventDefaultAction}
-                onChange={(e) => setInput(e.target.value)}
-              />
-              <input
-                type="submit"
-                value="SUBMIT"
-                className="text-white outline outline-offset-2 outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
-              />
-            </div>
-            <div className="flex flex-row space-x-4 justify-between p-3">
-              <p className="text-white w-fit  outline outline-1  rounded-lg text-xl p-1">
-                Current answer: {idea}
-              </p>
+              <div className="float-right">
+                <input
+                  type="text"
+                  placeholder="Enter your idea.."
+                  value={input}
+                  className="p-1 h-2/3 text-lg mr-4"
+                  onPaste={preventDefaultAction}
+                  onChange={(e) => setInput(e.target.value)}
+                />
+                <input
+                  type="submit"
+                  value="SUBMIT"
+                  className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
+                />
+              </div>
+              <div className="place-items-center items-center">
+                <h2 className="text-black underline text-4xl pr-100 p-1">
+                  {idea}
+                </h2>
+              </div>
             </div>
           </form>
         </div>
