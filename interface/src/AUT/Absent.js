@@ -12,7 +12,7 @@ let promptId = 0;
 let itemId = 0;
 let ideasCount = 0;
 
-const Generate = () => {
+const Absent = () => {
   // const [input, setInput] = useState(""); // store currently inputted idea in input form
 
   // const [ideaEditing, setIdeaEditing] = useState(null); // id of idea we are editing
@@ -236,4 +236,4 @@ const Generate = () => {
   );
 };
 
-export default Generate;
+export default Absent;
