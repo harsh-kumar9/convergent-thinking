@@ -8,7 +8,7 @@ import Game from "../Game/Game";
 import prompt_json from "./output.json";
 
 let nextId = 0;
-let promptId = 0;
+//let promptId = 0;
 let itemId = 0;
 let ideasCount = 0;
 
@@ -17,7 +17,7 @@ const Generate = () => {
 
   // const [ideaEditing, setIdeaEditing] = useState(null); // id of idea we are editing
   // const [editingText, setEditingText] = useState("");
-
+  const [promptId, setPromptId] = useState(0);
   const [input, setInput] = useState("");
   const [idea, setIdea] = useState([]); // Answer
   const [promptCopy, setPromptCopy] = useState([]);
@@ -135,7 +135,7 @@ const Generate = () => {
         addData({ HideTime: outOfFocusTime });
         navigate("/convergent/feedback");
       } else {
-        promptId += 1;
+        setPromptId(promptId + 1);
         // reset states and timer
         if (promptId === 6) {
           setTime(60);
@@ -155,9 +155,6 @@ const Generate = () => {
   }
   let practice = "Practice Round:";
   let test = "Test Round:";
-  console.log(promptCopy[promptId]);
-  console.log(promptCopy[promptId][3]);
-  console.log(prompt_json[promptCopy[promptId][3]]);
   return !(promptId === 6) ? (
     promptId > 6 ? (
       <div className="h-screen w-screen place-items-center justify-center flex text-3xl font-semibold space-y-8 p-8 bg-cover">
@@ -170,7 +167,7 @@ const Generate = () => {
               <div className="col-start-1 place-items-center">
                 <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
                   {promptId < 6
-                    ? practice.concat(" ", (promptId + 1).toString(), "/6")
+                    ? practice.concat(" ", promptId.toString(), "/6")
                     : test.concat(" ", (promptId - 6).toString(), "/3")}
                 </span>
               </div>
@@ -196,7 +193,7 @@ const Generate = () => {
                 following:
               </p>
               <div
-                className="mb-4 items-center grid grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
+                className="mb-4 items-center grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
               >
                 <h2 className="text-black text-4xl pr-100 p-1">
@@ -243,7 +240,7 @@ const Generate = () => {
               <div className="col-start-1 place-items-center">
                 <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
                   {promptId < 6
-                    ? practice.concat(" ", (promptId + 1).toString(), "/6")
+                    ? practice.concat(" ", promptId.toString(), "/6")
                     : test.concat(" ", (promptId - 6).toString(), "/3")}
                 </span>
               </div>
