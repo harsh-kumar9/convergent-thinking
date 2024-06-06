@@ -106,7 +106,7 @@ const Generate = () => {
     setInput(""); // clears the input form
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(20);
+  const [time, setTime] = useState(30);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -140,7 +140,7 @@ const Generate = () => {
         if (promptId === 6) {
           setTime(60);
         } else {
-          setTime(20);
+          setTime(30);
         }
         setInput("");
         setIdea("");
