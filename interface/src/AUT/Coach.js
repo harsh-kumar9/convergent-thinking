@@ -94,7 +94,7 @@ const Coach = () => {
         ...shuffledHard.slice(0, 2),
       ];
       const testArray = [shuffledEasy[3], shuffledMedium[3], shuffledHard[3]];
-      return [...shuffleArray(trialArray), "dummy", ...shuffleArray(testArray)];
+      return [shuffleEasy[3], ...shuffleArray(trialArray), "dummy", ...shuffleArray(testArray)];
     });
     setShuffled(true);
   }, []);
@@ -124,20 +124,20 @@ const Coach = () => {
 
   useEffect(() => {
     if (time === 0) {
-      if (!(promptId === 6)) {
+      if (!(promptId === 7)) {
         addData({
           Prompt: promptCopy[promptId][3],
           Response: idea,
         });
       }
 
-      if (promptId === 9) {
+      if (promptId === 10) {
         addData({ HideTime: outOfFocusTime });
         navigate("/convergent/feedback");
       } else {
         setPromptId(promptId + 1);
         // reset states and timer
-        if (promptId === 6) {
+        if (promptId === 7) {
           setTime(60);
         } else {
           setTime(30);
@@ -156,8 +156,8 @@ const Coach = () => {
   let practice = "Practice Round:";
   let test = "Test Round:";
 
-  return !(promptId === 6) ? (
-    promptId > 6 ? (
+  return !(promptId === 7) ? (
+    promptId > 7 ? (
       <div className="h-screen w-screen place-items-center justify-center flex text-3xl font-semibold space-y-8 p-8 bg-cover">
         <div className="flex flex-row space-x-4 p-4 w-full h-full place-items-center justify-center rounded-[60px]">
           <div
@@ -167,9 +167,9 @@ const Coach = () => {
             <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
               <div className="col-start-1 place-items-center">
                 <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
-                  {promptId < 6
+                  {promptId < 7
                     ? practice.concat(" ", (promptId).toString(), "/6")
-                    : test.concat(" ", (promptId - 6).toString(), "/3")}
+                    : test.concat(" ", (promptId - 7).toString(), "/3")}
                 </span>
               </div>
               <div></div>
@@ -240,9 +240,9 @@ const Coach = () => {
             <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
               <div className="col-start-1 place-items-center">
                 <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
-                  {promptId < 6
+                  {promptId < 7
                     ? practice.concat(" ", promptId.toString(), "/6")
-                    : test.concat(" ", (promptId - 6).toString(), "/3")}
+                    : test.concat(" ", (promptId - 7).toString(), "/3")}
                 </span>
               </div>
               <div></div>
