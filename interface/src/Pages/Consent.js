@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import background from "../assets/blur-background.svg";
-
+import InstructFluency from "./InstructFluency";
 const Consent = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     if (checked) {
-      navigate("/convergent/controls");
+      navigate("/convergent/InstructFluency");
     } else {
       alert("Please give your consent to proceed");
     }

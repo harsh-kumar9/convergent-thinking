@@ -19,7 +19,7 @@ const Absent = () => {
   // const [editingText, setEditingText] = useState("");
   const [promptId, setPromptId] = useState(0);
   const [input, setInput] = useState("");
-  const [idea, setIdea] = useState([]); // Answer
+  const [idea, setIdea] = useState(""); // Answer
   const [promptCopy, setPromptCopy] = useState([]);
   const [shuffled, setShuffled] = useState(false);
   const outOfFocusStart = useRef(0);
@@ -203,26 +203,32 @@ const Absent = () => {
                 {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
                 {promptCopy[promptId][2]}
               </h2>
-              <div className="float-right">
-                <input
-                  type="text"
-                  placeholder="Enter your idea.."
-                  value={input}
-                  className="p-1 h-2/3 text-lg mr-4"
-                  onPaste={preventDefaultAction}
-                  onChange={(e) => setInput(e.target.value)}
-                />
-                <input
-                  type="submit"
-                  value="SUBMIT"
-                  className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
-                />
-              </div>
-              <div className="place-items-center items-center">
-                <h2 className="text-black underline text-4xl pr-100 p-1">
-                  {idea}
-                </h2>
-              </div>
+
+              {idea === "" ? (
+                <div className="float-right">
+                  <input
+                    type="text"
+                    placeholder="Enter your idea.."
+                    value={input}
+                    className="p-1 h-2/3 text-lg mr-4"
+                    onPaste={preventDefaultAction}
+                    onChange={(e) => setInput(e.target.value)}
+                  />
+                  <input
+                    type="submit"
+                    value="SUBMIT"
+                    className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
+                  />
+                </div>
+              ) : (
+                <div className="float-right">
+                  <h2 className="text-black underline text-4xl pr-100 p-1">
+                    {idea}
+                  </h2>
+                </div>
+              )}
+
+              <div className="place-items-center items-center"></div>
             </div>
           </form>
           <h2 className="text-black mb-4 text-2xl text-center mt-4">
