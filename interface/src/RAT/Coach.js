@@ -219,7 +219,7 @@ const Coach = () => {
                     <input
                       type="submit"
                       value="SUBMIT"
-                      className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
+                      className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-slate-100"
                     />
                   </div>
                 ) : (
@@ -295,7 +295,7 @@ const Coach = () => {
                     <input
                       type="submit"
                       value="SUBMIT"
-                      className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
+                      className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-slate-100"
                     />
                   </div>
                 ) : (
