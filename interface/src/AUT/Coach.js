@@ -94,7 +94,12 @@ const Coach = () => {
         ...shuffledHard.slice(0, 2),
       ];
       const testArray = [shuffledEasy[3], shuffledMedium[3], shuffledHard[3]];
-      return [shuffleEasy[3], ...shuffleArray(trialArray), "dummy", ...shuffleArray(testArray)];
+      return [
+        shuffledEasy[3],
+        ...shuffleArray(trialArray),
+        "dummy",
+        ...shuffleArray(testArray),
+      ];
     });
     setShuffled(true);
   }, []);
@@ -168,7 +173,7 @@ const Coach = () => {
               <div className="col-start-1 place-items-center">
                 <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
                   {promptId < 7
-                    ? practice.concat(" ", (promptId).toString(), "/6")
+                    ? practice.concat(" ", promptId.toString(), "/6")
                     : test.concat(" ", (promptId - 7).toString(), "/3")}
                 </span>
               </div>
