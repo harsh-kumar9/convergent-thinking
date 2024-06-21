@@ -12,7 +12,7 @@ let nextId = 0;
 let itemId = 0;
 let ideasCount = 0;
 
-const Coach = () => {
+const Generate = () => {
   // const [input, setInput] = useState(""); // store currently inputted idea in input form
 
   // const [ideaEditing, setIdeaEditing] = useState(null); // id of idea we are editing
@@ -94,7 +94,12 @@ const Coach = () => {
         ...shuffledHard.slice(0, 2),
       ];
       const testArray = [shuffledEasy[3], shuffledMedium[3], shuffledHard[3]];
-      return [shuffleEasy[3], ...shuffleArray(trialArray), "dummy", ...shuffleArray(testArray)];
+      return [
+        shuffledEasy[3],
+        ...shuffleArray(trialArray),
+        "dummy",
+        ...shuffleArray(testArray),
+      ]; //added shuffledeasy[3] for buffer while loading
     });
     setShuffled(true);
   }, []);
@@ -106,7 +111,7 @@ const Coach = () => {
     setInput(""); // clears the input form
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(30);
+  const [time, setTime] = useState(60);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -140,7 +145,7 @@ const Coach = () => {
         if (promptId === 7) {
           setTime(60);
         } else {
-          setTime(30);
+          setTime(60);
         }
         setInput("");
         setIdea("");
@@ -155,7 +160,6 @@ const Coach = () => {
   }
   let practice = "Practice Round:";
   let test = "Test Round:";
-
   return !(promptId === 7) ? (
     promptId > 7 ? (
       <div className="h-screen w-screen place-items-center justify-center flex text-3xl font-semibold space-y-8 p-8 bg-cover">
@@ -168,7 +172,7 @@ const Coach = () => {
               <div className="col-start-1 place-items-center">
                 <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
                   {promptId < 7
-                    ? practice.concat(" ", (promptId).toString(), "/6")
+                    ? practice.concat(" ", promptId.toString(), "/6")
                     : test.concat(" ", (promptId - 7).toString(), "/3")}
                 </span>
               </div>
@@ -194,33 +198,36 @@ const Coach = () => {
                 following:
               </p>
               <div
-                className="mb-4 items-center grid grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
+                className="mb-4 items-center grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
               >
                 <h2 className="text-black text-4xl pr-100 p-1">
                   {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
                   {promptCopy[promptId][2]}
                 </h2>
-                <div className="float-right">
-                  <input
-                    type="text"
-                    placeholder="Enter your idea.."
-                    value={input}
-                    className="p-1 h-2/3 text-lg mr-4"
-                    onPaste={preventDefaultAction}
-                    onChange={(e) => setInput(e.target.value)}
-                  />
-                  <input
-                    type="submit"
-                    value="SUBMIT"
-                    className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
-                  />
-                </div>
-                <div className="place-items-center items-center">
-                  <h2 className="text-black underline text-4xl pr-100 p-1">
-                    {idea}
-                  </h2>
-                </div>
+                {idea === "" ? (
+                  <div className="float-right">
+                    <input
+                      type="text"
+                      placeholder="Enter your idea.."
+                      value={input}
+                      className="p-1 h-2/3 text-lg mr-4"
+                      onPaste={preventDefaultAction}
+                      onChange={(e) => setInput(e.target.value)}
+                    />
+                    <input
+                      type="submit"
+                      value="SUBMIT"
+                      className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-slate-100"
+                    />
+                  </div>
+                ) : (
+                  <div className="float-right">
+                    <h2 className="text-black underline text-4xl pr-100 p-1">
+                      {idea}
+                    </h2>
+                  </div>
+                )}
               </div>
             </form>
             <h2 className="text-black mb-4 text-2xl text-center mt-4">
@@ -274,26 +281,29 @@ const Coach = () => {
                   {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
                   {promptCopy[promptId][2]}
                 </h2>
-                <div className="float-right">
-                  <input
-                    type="text"
-                    placeholder="Enter your idea.."
-                    value={input}
-                    className="p-1 h-2/3 text-lg mr-4"
-                    onPaste={preventDefaultAction}
-                    onChange={(e) => setInput(e.target.value)}
-                  />
-                  <input
-                    type="submit"
-                    value="SUBMIT"
-                    className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
-                  />
-                </div>
-                <div className="place-items-center items-center">
-                  <h2 className="text-black underline text-4xl pr-100 p-1">
-                    {idea}
-                  </h2>
-                </div>
+                {idea === "" ? (
+                  <div className="float-right">
+                    <input
+                      type="text"
+                      placeholder="Enter your idea.."
+                      value={input}
+                      className="p-1 h-2/3 text-lg mr-4"
+                      onPaste={preventDefaultAction}
+                      onChange={(e) => setInput(e.target.value)}
+                    />
+                    <input
+                      type="submit"
+                      value="SUBMIT"
+                      className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-slate-100"
+                    />
+                  </div>
+                ) : (
+                  <div className="float-right">
+                    <h2 className="text-black underline text-4xl pr-100 p-1">
+                      {idea}
+                    </h2>
+                  </div>
+                )}
               </div>
             </form>
             <h2 className="text-black mb-4 text-2xl text-center mt-4">
@@ -311,8 +321,8 @@ const Coach = () => {
               }}
             >
               <ReactTyped
-                key={prompt_json[promptCopy[promptId][3]]["gpt-4-coach"]}
-                strings={[prompt_json[promptCopy[promptId][3]]["gpt-4-coach"]]}
+                key={prompt_json[promptCopy[promptId][3]]["gpt-4"]}
+                strings={[prompt_json[promptCopy[promptId][3]]["gpt-4"]]}
                 typeSpeed={0.1}
                 cursorChar="⬤"
                 showCursor={true}
@@ -329,4 +339,4 @@ const Coach = () => {
   );
 };
 
-export default Coach;
+export default Generate;

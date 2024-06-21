@@ -19,7 +19,7 @@ const Absent = () => {
   // const [editingText, setEditingText] = useState("");
   const [promptId, setPromptId] = useState(0);
   const [input, setInput] = useState("");
-  const [idea, setIdea] = useState([]); // Answer
+  const [idea, setIdea] = useState(""); // Answer
   const [promptCopy, setPromptCopy] = useState([]);
   const [shuffled, setShuffled] = useState(false);
   const outOfFocusStart = useRef(0);
@@ -94,7 +94,12 @@ const Absent = () => {
         ...shuffledHard.slice(0, 2),
       ];
       const testArray = [shuffledEasy[3], shuffledMedium[3], shuffledHard[3]];
-      return [shuffledEasy[3],...shuffleArray(trialArray), "dummy", ...shuffleArray(testArray)];
+      return [
+        shuffledEasy[3],
+        ...shuffleArray(trialArray),
+        "dummy",
+        ...shuffleArray(testArray),
+      ];
     });
     setShuffled(true);
   }, []);
@@ -106,7 +111,7 @@ const Absent = () => {
     setInput(""); // clears the input form
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(30);
+  const [time, setTime] = useState(60);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -140,7 +145,7 @@ const Absent = () => {
         if (promptId === 7) {
           setTime(60);
         } else {
-          setTime(30);
+          setTime(60);
         }
         setInput("");
         setIdea("");
@@ -156,49 +161,50 @@ const Absent = () => {
   let practice = "Practice Round:";
   let test = "Test Round:";
   return !(promptId === 7) ? (
-      <div className="h-screen w-screen place-items-center justify-center flex text-3xl font-semibold space-y-8 p-8 bg-cover">
-        <div className="flex flex-row space-x-4 p-4 w-full h-full place-items-center justify-center rounded-[60px]">
-          <div
-            className=" rounded-[60px] bg-orange-500 flex flex-col h-full px-4  outline outline-2 outline-white bg-slate-500"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
-          >
-            <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
-              <div className="col-start-1 place-items-center">
-                <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
-                  {promptId < 7
-                    ? practice.concat(" ", (promptId).toString(), "/6")
-                    : test.concat(" ", (promptId - 7).toString(), "/3")}
-                </span>
-              </div>
-              <div></div>
-              <div className="justify justify-end">
-                <span
-                  style={{
-                    backgroundColor: "rgba(0, 100, 0, .5)",
-                  }}
-                  className="text-white text-center outline outline-1 rounded-lg text-4xl p-1"
-                >
-                  Time: {`${Math.floor(time / 60)}`.padStart(2, 0)}:
-                  {`${time % 60}`.padStart(2, 0)}
-                </span>
-              </div>
+    <div className="h-screen w-screen place-items-center justify-center flex text-3xl font-semibold space-y-8 p-8 bg-cover">
+      <div className="flex flex-row space-x-4 p-4 w-full h-full place-items-center justify-center rounded-[60px]">
+        <div
+          className=" rounded-[60px] bg-orange-500 flex flex-col h-full px-4  outline outline-2 outline-white bg-slate-500"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
+        >
+          <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
+            <div className="col-start-1 place-items-center">
+              <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
+                {promptId < 7
+                  ? practice.concat(" ", promptId.toString(), "/6")
+                  : test.concat(" ", (promptId - 7).toString(), "/3")}
+              </span>
             </div>
-            <form
-              onSubmit={handleSubmit}
-              className="w-full place-items-center items-center"
-            >
-              <p className="text-black text-xl mb-6 mt-3">
-                Find a fourth word that is related to all three of the
-                following:
-              </p>
-              <div
-                className="mb-4 items-center grid grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
-                style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+            <div></div>
+            <div className="justify justify-end">
+              <span
+                style={{
+                  backgroundColor: "rgba(0, 100, 0, .5)",
+                }}
+                className="text-white text-center outline outline-1 rounded-lg text-4xl p-1"
               >
-                <h2 className="text-black text-4xl pr-100 p-1">
-                  {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
-                  {promptCopy[promptId][2]}
-                </h2>
+                Time: {`${Math.floor(time / 60)}`.padStart(2, 0)}:
+                {`${time % 60}`.padStart(2, 0)}
+              </span>
+            </div>
+          </div>
+          <form
+            onSubmit={handleSubmit}
+            className="w-full place-items-center items-center"
+          >
+            <p className="text-black text-xl mb-6 mt-3">
+              Find a fourth word that is related to all three of the following:
+            </p>
+            <div
+              className="mb-4 items-center grid grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+            >
+              <h2 className="text-black text-4xl pr-100 p-1">
+                {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
+                {promptCopy[promptId][2]}
+              </h2>
+
+              {idea === "" ? (
                 <div className="float-right">
                   <input
                     type="text"
@@ -214,20 +220,24 @@ const Absent = () => {
                     className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
                   />
                 </div>
-                <div className="place-items-center items-center">
+              ) : (
+                <div className="float-right">
                   <h2 className="text-black underline text-4xl pr-100 p-1">
                     {idea}
                   </h2>
                 </div>
-              </div>
-            </form>
-            <h2 className="text-black mb-4 text-2xl text-center mt-4">
-              No AI help this experiment.
-            </h2>
-            <div className="p-2"></div>
-          </div>
+              )}
+
+              <div className="place-items-center items-center"></div>
+            </div>
+          </form>
+          <h2 className="text-black mb-4 text-2xl text-center mt-4">
+            No AI help this experiment.
+          </h2>
+          <div className="p-2"></div>
         </div>
       </div>
+    </div>
   ) : (
     <Game />
   );
