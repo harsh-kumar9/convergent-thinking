@@ -109,6 +109,9 @@ const Generate = () => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
     setIdea(input);
     setInput(""); // clears the input form
+    if (promptId > 7) {
+      setTime(0);
+    }
   };
   // timer countdown in seconds
   const [time, setTime] = useState(60);
