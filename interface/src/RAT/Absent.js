@@ -26,7 +26,7 @@ const Absent = () => {
   const [outOfFocusTime, setOutOfFocusTime] = useState(0);
   const [prompts, setPrompts] = useState([]);
   const { data, addData } = useContext(DataContext);
-
+  const [outOfTime, setOutofTime] = useState(false);
   const navigate = useNavigate();
 
   const preventDefaultAction = (event) => {
@@ -113,8 +113,32 @@ const Absent = () => {
       setTime(0);
     }
   };
+  const nextQuestion = (e) => {
+    e.preventDefault(); // prevents page from refreshing upon clicking submit
+    if (!(promptId === 7)) {
+      addData({
+        Prompt: promptCopy[promptId][3],
+        Response: idea,
+      });
+    }
+    if (promptId === 10) {
+      addData({ HideTime: outOfFocusTime });
+      navigate("/convergent/feedback");
+    } else {
+      setPromptId(promptId + 1);
+      // reset states and timer
+      if (promptId === 7) {
+        setTime(5);
+      } else {
+        setTime(5);
+      }
+      setInput("");
+      setIdea("");
+      setOutofTime(false);
+    }
+  };
   // timer countdown in seconds
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(5);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -132,26 +156,20 @@ const Absent = () => {
 
   useEffect(() => {
     if (time === 0) {
-      if (!(promptId === 7)) {
-        addData({
-          Prompt: promptCopy[promptId][3],
-          Response: idea,
-        });
-      }
-
       if (promptId === 10) {
         addData({ HideTime: outOfFocusTime });
         navigate("/convergent/feedback");
       } else {
-        setPromptId(promptId + 1);
-        // reset states and timer
-        if (promptId === 7) {
-          setTime(60);
-        } else {
-          setTime(60);
+        if (promptId == 0 || promptId == 7) {
+          setPromptId(promptId + 1);
+          // reset states and timer
+          setTime(5);
+          setInput("");
+          setIdea("");
+          setOutofTime(false);
+        } else if (idea == "") {
+          setOutofTime(true);
         }
-        setInput("");
-        setIdea("");
       }
     }
     if (promptId >= promptCopy.length) {
@@ -170,27 +188,52 @@ const Absent = () => {
           className=" rounded-[60px] bg-orange-500 flex flex-col h-full px-4  outline outline-2 outline-white bg-slate-500"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
         >
-          <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
-            <div className="col-start-1 place-items-center">
-              <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
-                {promptId < 7
-                  ? practice.concat(" ", promptId.toString(), "/6")
-                  : test.concat(" ", (promptId - 7).toString(), "/3")}
+          {!outOfTime ? (
+            <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
+              <div className="col-start-1 place-items-center">
+                <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
+                  {promptId < 7
+                    ? practice.concat(" ", promptId.toString(), "/6")
+                    : test.concat(" ", (promptId - 7).toString(), "/3")}
+                </span>
+              </div>
+              <div></div>
+              <div className="justify justify-end">
+                <span
+                  style={{
+                    backgroundColor: "rgba(0, 100, 0, .5)",
+                  }}
+                  className="text-white text-center outline outline-1 rounded-lg text-4xl p-1"
+                >
+                  Time: {`${Math.floor(time / 60)}`.padStart(2, 0)}:
+                  {`${time % 60}`.padStart(2, 0)}
+                </span>
+              </div>
+            </div>
+          ) : idea == "" ? (
+            <div className="flex justify-center place-items-center mb-4 mt-8">
+              <span
+                style={{
+                  backgroundColor: "rgba(200, 0, 0, .5)",
+                }}
+                className="text-white text-center outline outline-1 rounded-lg text-4xl p-1"
+              >
+                Please submit a response!
               </span>
             </div>
-            <div></div>
-            <div className="justify justify-end">
+          ) : (
+            <div className="flex justify-center place-items-center mb-4 mt-8">
               <span
                 style={{
                   backgroundColor: "rgba(0, 100, 0, .5)",
                 }}
                 className="text-white text-center outline outline-1 rounded-lg text-4xl p-1"
               >
-                Time: {`${Math.floor(time / 60)}`.padStart(2, 0)}:
-                {`${time % 60}`.padStart(2, 0)}
+                Thank you!
               </span>
             </div>
-          </div>
+          )}
+
           <form
             onSubmit={handleSubmit}
             className="w-full place-items-center items-center"
@@ -220,14 +263,26 @@ const Absent = () => {
                   <input
                     type="submit"
                     value="SUBMIT"
-                    className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-orange-500"
+                    className="text-black bg-slate-400 outline outline-2 rounded-md font-bold text-xl px-2 hover:bg-slate-100"
                   />
                 </div>
-              ) : (
+              ) : time > 0 ? (
                 <div className="float-right">
                   <h2 className="text-black underline text-4xl pr-100 p-1">
                     {idea}
                   </h2>
+                </div>
+              ) : (
+                <div className="flex flex-1 justify justify-end pt-2 pb-2">
+                  <h2 className="text-black underline text-4xl pr-100 p-1 pr-2">
+                    {idea}
+                  </h2>
+                  <input
+                    value="NEXT QUESTION"
+                    type="button"
+                    onClick={nextQuestion}
+                    className="text-black bg-green-400 outline outline-2 rounded-md font-bold text-xl p-1 pl-2 hover:bg-slate-100"
+                  />
                 </div>
               )}
 
