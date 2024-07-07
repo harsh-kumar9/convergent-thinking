@@ -19,15 +19,8 @@ const Feedback = () => {
   const [q1, setQ1] = useState("");
   const [q2, setQ2] = useState("");
   const [q3, setQ3] = useState("");
-  const [q4, setQ4] = useState(null);
   const [q5, setQ5] = useState("");
   const [q6, setQ6] = useState("");
-
-  const handleSliderChange = (e) => {
-    const newValue = e.target.value;
-    setSliderValue(newValue);
-    setQ4(newValue); // Keep slider value and q4 in sync
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent the default form submission
@@ -37,7 +30,6 @@ const Feedback = () => {
       !(q1 === "") &&
       !(q2 === "") &&
       !(q3 === "") &&
-      !(q4 === null) &&
       !(q5 === "") &&
       !(q6 === "")
     ) {
@@ -46,7 +38,6 @@ const Feedback = () => {
         q1,
         q2,
         q3,
-        q4,
         q5,
         q6,
       };
@@ -65,19 +56,19 @@ const Feedback = () => {
       };
 
       // For MTurk submission: Set the value of a hidden input to include all necessary data
-      const dataInput = document.createElement("input");
-      dataInput.type = "hidden";
-      dataInput.name = "data";
-      dataInput.value = JSON.stringify(submissionData);
-      event.target.appendChild(dataInput);
+      // const dataInput = document.createElement("input");
+      // dataInput.type = "hidden";
+      // dataInput.name = "data";
+      // dataInput.value = JSON.stringify(submissionData);
+      // event.target.appendChild(dataInput);
+      console.log(submissionData);
 
       // Submit the form
-      event.target.submit();
+      //event.target.submit();
     } else if (
       !(q1 === "") &&
       !(q2 === "") &&
       !(q3 === "") &&
-      q4 === null &&
       !(q5 === "") &&
       !(q6 === "")
     ) {
@@ -243,34 +234,10 @@ const Feedback = () => {
           </label>
         </div>
 
-        {/* Slider for Self-creativity */}
-        <div className="mb-4">
-          <h2 className="text-2xl mb-2">
-            4. Adjust the slider below:{" "}
-            <i>
-              I am more creative than{" "}
-              <b>
-                <span>{sliderValue}%</span>
-              </b>{" "}
-              of humans.
-            </i>
-          </h2>
-          <input
-            type="range"
-            id="creative-slider"
-            name="creative-slider"
-            min="0"
-            max="100"
-            value={sliderValue}
-            onChange={handleSliderChange}
-            className="w-full"
-          />
-        </div>
-
         {/* New question */}
         <div className="mb-4">
           <h2 className="text-2xl mb-2">
-            5. What was your strategy for coming up with associated word for the
+            4. What was your strategy for coming up with associated word for the
             last three objects?
           </h2>
           <textarea
@@ -285,7 +252,7 @@ const Feedback = () => {
         {/* Technical issues question */}
         <div className="mb-4">
           <h2 className="text-2xl mb-2">
-            6. Did you have any technical issues during the HIT?
+            5. Did you have any technical issues during the HIT?
           </h2>
           <textarea
             name="q6"

@@ -118,6 +118,7 @@ const Fluency = () => {
 
   useEffect(() => {
     if (time === 0) {
+      addData({ FluencyInput: ideas });
       addData({ HideTime: outOfFocusTime });
       navigate("/convergent/controls");
     }
