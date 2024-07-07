@@ -117,10 +117,19 @@ const Generate = () => {
   const nextQuestion = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
     if (!(promptId === 7)) {
-      addData({
-        Prompt: promptCopy[promptId][3],
-        Response: idea,
-      });
+      if (promptId < 7) {
+        addData({
+          Round: "practice",
+          Prompt: promptCopy[promptId][3],
+          Response: idea,
+        });
+      } else {
+        addData({
+          Round: "test",
+          Prompt: promptCopy[promptId][3],
+          Response: idea,
+        });
+      }
     }
     if (promptId === 10) {
       addData({ HideTime: outOfFocusTime });
@@ -129,9 +138,9 @@ const Generate = () => {
       setPromptId(promptId + 1);
       // reset states and timer
       if (promptId === 7) {
-        setTime(60);
+        setTime(10);
       } else {
-        setTime(60);
+        setTime(10);
       }
       setInput("");
       setIdea("");
@@ -139,7 +148,7 @@ const Generate = () => {
     }
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(10);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -158,13 +167,18 @@ const Generate = () => {
   useEffect(() => {
     if (time === 0) {
       if (promptId === 10) {
+        addData({
+          Round: "test",
+          Prompt: promptCopy[promptId][3],
+          Response: idea,
+        });
         addData({ HideTime: outOfFocusTime });
         navigate("/convergent/feedback");
       } else {
         if (promptId == 0 || promptId == 7) {
           setPromptId(promptId + 1);
           // reset states and timer
-          setTime(60);
+          setTime(10);
           setInput("");
           setIdea("");
           setOutofTime(false);

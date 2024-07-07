@@ -117,10 +117,19 @@ const Coach = () => {
   const nextQuestion = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
     if (!(promptId === 7)) {
-      addData({
-        Prompt: promptCopy[promptId][3],
-        Response: idea,
-      });
+      if (promptId < 7) {
+        addData({
+          Round: "practice",
+          Prompt: promptCopy[promptId][3],
+          Response: idea,
+        });
+      } else {
+        addData({
+          Round: "test",
+          Prompt: promptCopy[promptId][3],
+          Response: idea,
+        });
+      }
     }
     if (promptId === 10) {
       addData({ HideTime: outOfFocusTime });
@@ -158,6 +167,11 @@ const Coach = () => {
   useEffect(() => {
     if (time === 0) {
       if (promptId === 10) {
+        addData({
+          Round: "test",
+          Prompt: promptCopy[promptId][3],
+          Response: idea,
+        });
         addData({ HideTime: outOfFocusTime });
         navigate("/convergent/feedback");
       } else {
