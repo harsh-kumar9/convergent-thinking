@@ -122,12 +122,14 @@ const Coach = () => {
           Round: "practice",
           Prompt: promptCopy[promptId][3],
           Response: idea,
+          onTime: !outOfTime,
         });
       } else {
         addData({
           Round: "test",
           Prompt: promptCopy[promptId][3],
           Response: idea,
+          onTime: !outOfTime,
         });
       }
     }
@@ -138,9 +140,9 @@ const Coach = () => {
       setPromptId(promptId + 1);
       // reset states and timer
       if (promptId === 7) {
-        setTime(60);
+        setTime(5);
       } else {
-        setTime(60);
+        setTime(5);
       }
       setInput("");
       setIdea("");
@@ -148,7 +150,7 @@ const Coach = () => {
     }
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(5);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -171,6 +173,7 @@ const Coach = () => {
           Round: "test",
           Prompt: promptCopy[promptId][3],
           Response: idea,
+          onTime: !outOfTime,
         });
         addData({ HideTime: outOfFocusTime });
         navigate("/convergent/feedback");
@@ -178,7 +181,7 @@ const Coach = () => {
         if (promptId == 0 || promptId == 7) {
           setPromptId(promptId + 1);
           // reset states and timer
-          setTime(60);
+          setTime(5);
           setInput("");
           setIdea("");
           setOutofTime(false);

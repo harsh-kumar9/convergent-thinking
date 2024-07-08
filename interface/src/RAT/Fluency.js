@@ -96,7 +96,7 @@ const Fluency = () => {
   }
 
   // timer countdown in seconds
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(5);
 
   const deleteIdea = (id) => {
     setIdeas(ideas.filter((idea) => idea.id !== id));
