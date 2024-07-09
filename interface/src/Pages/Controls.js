@@ -1,27 +1,29 @@
 import React, { useEffect, useContext } from "react";
 import { DataContext } from "../App";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import background from "../assets/blur-background.svg";
 import "./Controls.css";
 
 const Controls = () => {
-
   const navigate = useNavigate();
 
-  const experimentTypes = ["absent", "generate", "coach"]
+  const experimentTypes = ["absent", "generate", "coach"];
 
-  const {data, addData} = useContext(DataContext);
+  const { data, addData } = useContext(DataContext);
 
   useEffect(() => {
     const randomType = experimentTypes[Math.floor(Math.random() * 3)];
-    navigate(`/convergent/instruct${randomType}`);
+    console.log(randomType);
     addData(randomType);
-  }, [])
+    navigate(`/convergent/instruct${randomType}`);
+  }, []);
 
   return (
-    <div style={{ backgroundImage: `url(${background})` }} className="text-white h-screen w-screen items-center justify-center space-y-8 p-14 bg-cover">
-    </div>
+    <div
+      style={{ backgroundImage: `url(${background})` }}
+      className="text-white h-screen w-screen items-center justify-center space-y-8 p-14 bg-cover"
+    ></div>
   );
-}
+};
 
 export default Controls;

@@ -1,0 +1,98 @@
+{
+  "0": {
+    "PageLoad": "2024-07-04T18:31:54.873Z"
+  },
+  "1": {
+    "PageLoad": "2024-07-04T18:31:54.874Z"
+  },
+  "2": {
+    "FluencyInput": [
+      {
+        "id": 0,
+        "iid": 0,
+        "name": "f",
+        "time": "2024-07-04T18:31:56.326Z"
+      },
+      {
+        "id": 1,
+        "iid": 1,
+        "name": "ffff",
+        "time": "2024-07-04T18:31:58.590Z"
+      }
+    ]
+  },
+  "3": {
+    "HideTime": 0
+  },
+  "4": "coach",
+  "5": "absent",
+  "6": {
+    "How Creative?": "35",
+    "Increased AI use makes you feel": "More excited than concerned"
+  },
+  "7": {
+    "PageLoad": "2024-07-04T18:33:00.027Z"
+  },
+  "8": {
+    "PageLoad": "2024-07-04T18:33:00.028Z"
+  },
+  "9": {
+    "Round": "practice",
+    "Prompt": "door",
+    "Response": "diior"
+  },
+  "10": {
+    "Round": "practice",
+    "Prompt": "terminal",
+    "Response": "dor"
+  },
+  "11": {
+    "Round": "practice",
+    "Prompt": "day",
+    "Response": "pract3"
+  },
+  "12": {
+    "Round": "practice",
+    "Prompt": "battle",
+    "Response": "pract4"
+  },
+  "13": {
+    "Round": "practice",
+    "Prompt": "saw",
+    "Response": "pract5"
+  },
+  "14": {
+    "Round": "practice",
+    "Prompt": "cart",
+    "Response": "pract6"
+  },
+  "15": {
+    "Round": "test",
+    "Prompt": "common",
+    "Response": "test1"
+  },
+  "16": {
+    "Round": "test",
+    "Prompt": "sick",
+    "Response": "test2"
+  },
+  "17": {
+    "Round": "test",
+    "Prompt": "spider",
+    "Response": "spider"
+  },
+  "18": {
+    "HideTime": 0
+  },
+  "feedback": {
+    "q1": "Somewhat easy",
+    "q2": "More excited than concerned",
+    "q3": "9",
+    "q5": "e",
+    "q6": "e"
+  },
+  "assignmentId": "test",
+  "hitId": "test",
+  "workerId": "test8338",
+  "ts_submitted_": "2024-07-04T18:34:04.810Z"
+}

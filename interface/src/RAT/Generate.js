@@ -122,12 +122,14 @@ const Generate = () => {
           Round: "practice",
           Prompt: promptCopy[promptId][3],
           Response: idea,
+          onTime: !outOfTime,
         });
       } else {
         addData({
           Round: "test",
           Prompt: promptCopy[promptId][3],
           Response: idea,
+          onTime: !outOfTime,
         });
       }
     }
@@ -171,6 +173,7 @@ const Generate = () => {
           Round: "test",
           Prompt: promptCopy[promptId][3],
           Response: idea,
+          onTime: !outOfTime,
         });
         addData({ HideTime: outOfFocusTime });
         navigate("/convergent/feedback");
