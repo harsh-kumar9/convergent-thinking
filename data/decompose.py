@@ -19,7 +19,15 @@ fluency_columns = ['assignment_id', 'hit_id',
                    'worker_id', 'start_time', 'response', 'response_order']
 fluency_df = pd.DataFrame(columns=fluency_columns)
 # Define participants dataframe
-participants_columns = ['assignment_id', 'hit_id', 'worker_id', 'condition']
+participants_columns = ['assignment_id', 'hit_id', 'worker_id', 'condition',
+                        'I am more creative than \% of humans (before)',
+                        'Increased use of AI computer programs in daily life makes you feel (before)',
+                        'How difficult was it to come up with the last RATs',
+                        'Increased use of AI computer programs in daily life makes you feel (after)',
+                        'Please select Agree',
+                        'I am more creative than \% of humans (after)',
+                        'Technical Issues?',
+                        ]
 participants_df = pd.DataFrame(columns=participants_columns)
 
 for row_id in data_rows.index:
@@ -85,12 +93,11 @@ for row_id in data_rows.index:
         'hit_id': hit_id,
         'worker_id': worker_id,
         'condition': condition,
-        'diversity': median_distance,
         'I am more creative than \% of humans (before)': survey_answers['How Creative?'],
         'Increased use of AI computer programs in daily life makes you feel (before)': survey_answers['Increased AI use makes you feel'],
-        'How difficult was it to come up with uses for the last object?': feedback_answers['q1'],
+        'How difficult was it to come up with the last RATs': feedback_answers['q1'],
         'Increased use of AI computer programs in daily life makes you feel (after)': feedback_answers['q2'],
-        'How many total objects encountered?': feedback_answers['q3'],
+        'Please select Agree': feedback_answers['q3'],
         'I am more creative than \% of humans (after)': feedback_answers['q4'],
         'Hide Time': hide_time['HideTime'],
         'Page Load': page_load['PageLoad'],
