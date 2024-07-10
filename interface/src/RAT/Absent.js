@@ -168,14 +168,18 @@ const Absent = () => {
   useEffect(() => {
     if (time === 0) {
       if (promptId === 10) {
-        addData({
-          Round: "test",
-          Prompt: promptCopy[promptId][3],
-          Response: idea,
-          onTime: !outOfTime,
-        });
-        addData({ HideTime: outOfFocusTime });
-        navigate("/convergent/feedback");
+        if (idea == "") {
+          setOutofTime(true);
+        } else {
+          addData({
+            Round: "test",
+            Prompt: promptCopy[promptId][3],
+            Response: idea,
+            onTime: !outOfTime,
+          });
+          addData({ HideTime: outOfFocusTime });
+          navigate("/convergent/feedback");
+        }
       } else {
         if (promptId == 0 || promptId == 7) {
           setPromptId(promptId + 1);
@@ -294,18 +298,23 @@ const Absent = () => {
                   <h2 className="text-black underline text-4xl pr-100 p-1 pr-2">
                     {idea}
                   </h2>
-                  <input
-                    value="NEXT QUESTION"
-                    type="button"
-                    onClick={nextQuestion}
-                    className="text-black bg-green-400 outline outline-2 rounded-md font-bold text-xl p-1 pl-2 hover:bg-slate-100"
-                  />
                 </div>
               )}
-
               <div className="place-items-center items-center"></div>
             </div>
           </form>
+          {time > 0 || idea === "" ? (
+            <div className="place-items-center items-center"></div>
+          ) : (
+            <div className="text-center place-items-center items-center">
+              <input
+                value="NEXT QUESTION"
+                type="button"
+                onClick={nextQuestion}
+                className="text-black text-center bg-green-400 outline outline-2 rounded-md font-bold text-xxl p-1 pl-2 hover:bg-slate-100"
+              />
+            </div>
+          )}
           <h2 className="text-black mb-4 text-2xl text-center mt-4">
             No AI help this experiment.
           </h2>
