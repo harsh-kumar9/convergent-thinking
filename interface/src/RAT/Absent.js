@@ -139,9 +139,9 @@ const Absent = () => {
       setPromptId(promptId + 1);
       // reset states and timer
       if (promptId === 7) {
-        setTime(5);
+        setTime(60);
       } else {
-        setTime(5);
+        setTime(60);
       }
       setInput("");
       setIdea("");
@@ -149,7 +149,7 @@ const Absent = () => {
     }
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(5);
+  const [time, setTime] = useState(60);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -184,7 +184,7 @@ const Absent = () => {
         if (promptId == 0 || promptId == 7) {
           setPromptId(promptId + 1);
           // reset states and timer
-          setTime(5);
+          setTime(60);
           setInput("");
           setIdea("");
           setOutofTime(false);
