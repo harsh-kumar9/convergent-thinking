@@ -21,7 +21,32 @@ const Feedback = () => {
   const [q3, setQ3] = useState("");
   const [q4, setq4] = useState("");
   const [q5, setq5] = useState("");
+  const submitData = async (data) => {
+    try {
+      const response = await axios.post(
+        "https://creative-gpt.azurewebsites.net/api/httptrigger2?code=SfnloefDXU04OK8Ao4QAvrwDRNIBeoDKWmco5VKt33xSAzFukmwSbw%3D%3D",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
+      // Redirect to the Prolific URL
+      window.location.href =
+        "https://app.prolific.com/submissions/complete?cc=C13Q7C8J";
+
+      if (response.status !== 200) {
+        console.log("Response not okay");
+      }
+
+      return response.data;
+    } catch (error) {
+      console.error("Error submitting data:", error);
+      throw error;
+    }
+  };
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent the default form submission
 
@@ -63,8 +88,13 @@ const Feedback = () => {
       // event.target.appendChild(dataInput);
       console.log(submissionData);
 
-      // Submit the form
-      //event.target.submit();
+      submitData(submissionData)
+        .then((result) => {
+          console.log("Data submitted successfully:", result);
+        })
+        .catch((error) => {
+          console.error("Error in submission:", error);
+        });
     } else if (
       !(q1 === "") &&
       !(q2 === "") &&
