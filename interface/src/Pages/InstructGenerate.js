@@ -20,7 +20,7 @@ const InstructGenerate = () => {
         "How Creative?": sliderValue,
         "Increased AI use makes you feel": q2,
       });
-      navigate("/convergent/generate");
+      navigate("/convergent-thinking/generate");
     } else if (checked && !(q2 === "") && sliderValue === null) {
       alert("Please select a value for Question 1 (Slider)");
     } else {

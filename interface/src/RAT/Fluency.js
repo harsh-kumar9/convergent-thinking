@@ -96,7 +96,7 @@ const Fluency = () => {
   }
 
   // timer countdown in seconds
-  const [time, setTime] = useState(5);
+  const [time, setTime] = useState(60);
 
   const deleteIdea = (id) => {
     setIdeas(ideas.filter((idea) => idea.id !== id));
@@ -120,7 +120,7 @@ const Fluency = () => {
     if (time === 0) {
       addData({ FluencyInput: ideas });
       addData({ HideTime: outOfFocusTime });
-      navigate("/convergent/controls");
+      navigate("/convergent-thinking/controls");
     }
   }, [time]);
 

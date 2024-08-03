@@ -135,7 +135,7 @@ const Coach = () => {
     }
     if (promptId === 10) {
       addData({ HideTime: outOfFocusTime });
-      navigate("/convergent/feedback");
+      navigate("/convergent-thinking/feedback");
     } else {
       setPromptId(promptId + 1);
       // reset states and timer
@@ -179,7 +179,7 @@ const Coach = () => {
             onTime: !outOfTime,
           });
           addData({ HideTime: outOfFocusTime });
-          navigate("/convergent/feedback");
+          navigate("/convergent-thinking/feedback");
         }
       } else {
         if (promptId == 0 || promptId == 7) {
