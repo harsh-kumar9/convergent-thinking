@@ -15,7 +15,7 @@ const Controls = () => {
     const randomType = experimentTypes[Math.floor(Math.random() * 3)];
     console.log(randomType);
     addData(randomType);
-    navigate(`/convergent/instruct${randomType}`);
+    navigate(`/convergent-thinking/instruct${randomType}`);
   }, []);
 
   return (

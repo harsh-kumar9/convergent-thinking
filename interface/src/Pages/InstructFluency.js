@@ -16,7 +16,7 @@ const InstructFluency = () => {
 
   const handleClick = () => {
     if (checked) {
-      navigate("/convergent/fluency");
+      navigate("/convergent-thinking/fluency");
     } else {
       alert("Please read the instructions & answer all questions to proceed");
     }

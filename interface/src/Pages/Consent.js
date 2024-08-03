@@ -7,7 +7,7 @@ const Consent = () => {
 
   const handleClick = () => {
     if (checked) {
-      navigate("/convergent/InstructFluency");
+      navigate("/convergent-thinking/InstructFluency");
     } else {
       alert("Please give your consent to proceed");
     }

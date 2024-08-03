@@ -67,33 +67,60 @@ function App() {
           <mTurkContext.Provider value={{ mTurk, addMTurk }}>
             <Router>
               <Routes>
-                <Route path="/convergent/" element={<Captcha />} />
                 <Route
-                  path="/convergent/instructabsent"
+                  path="/convergent-thinking-thinking/"
+                  element={<Captcha />}
+                />
+                <Route
+                  path="/convergent-thinking/instructabsent"
                   element={<InstructAbsent />}
                 />
                 <Route
-                  path="/convergent/instructgenerate"
+                  path="/convergent-thinking/instructgenerate"
                   element={<InstructGenerate />}
                 />
                 <Route
-                  path="/convergent/instructcoach"
+                  path="/convergent-thinking/instructcoach"
                   element={<InstructCoach />}
                 />
                 <Route
-                  path="/convergent/instructfluency"
+                  path="/convergent-thinking/instructfluency"
                   element={<InstructFluency />}
                 />
-                <Route path="/convergent/thanks" element={<Thanks />} />
-                <Route path="/convergent/consent" element={<Consent />} />
-                <Route path="/convergent/controls" element={<Controls />} />
-                <Route path="/convergent/absent" element={<Absent />} />
-                <Route path="/convergent/generate" element={<Generate />} />
-                <Route path="/convergent/coach" element={<Coach />} />
-                <Route path="/convergent/refine" element={<Refine />} />
-                <Route path="/convergent/feedback" element={<Feedback />} />
-                <Route path="/convergent/game" element={<Game />} />
-                <Route path="/convergent/fluency" element={<Fluency />} />
+                <Route
+                  path="/convergent-thinking/thanks"
+                  element={<Thanks />}
+                />
+                <Route
+                  path="/convergent-thinking/consent"
+                  element={<Consent />}
+                />
+                <Route
+                  path="/convergent-thinking/controls"
+                  element={<Controls />}
+                />
+                <Route
+                  path="/convergent-thinking/absent"
+                  element={<Absent />}
+                />
+                <Route
+                  path="/convergent-thinking/generate"
+                  element={<Generate />}
+                />
+                <Route path="/convergent-thinking/coach" element={<Coach />} />
+                <Route
+                  path="/convergent-thinking/refine"
+                  element={<Refine />}
+                />
+                <Route
+                  path="/convergent-thinking/feedback"
+                  element={<Feedback />}
+                />
+                <Route path="/convergent-thinking/game" element={<Game />} />
+                <Route
+                  path="/convergent-thinking/fluency"
+                  element={<Fluency />}
+                />
               </Routes>
             </Router>
           </mTurkContext.Provider>

@@ -120,7 +120,7 @@ const Fluency = () => {
     if (time === 0) {
       addData({ FluencyInput: ideas });
       addData({ HideTime: outOfFocusTime });
-      navigate("/convergent/controls");
+      navigate("/convergent-thinking/controls");
     }
   }, [time]);
 
