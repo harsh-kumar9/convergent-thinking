@@ -16,32 +16,6 @@ const Feedback = () => {
   // console.log(mTurk.workerId);
 
   // const [date, setDate] = useState(new Date());
-  const submitData = async (data) => {
-    try {
-      const response = await axios.post(
-        "https://creative-gpt.azurewebsites.net/api/httptrigger2?code=SfnloefDXU04OK8Ao4QAvrwDRNIBeoDKWmco5VKt33xSAzFukmwSbw%3D%3D",
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      // Redirect to the Prolific URL
-      window.location.href =
-        "https://app.prolific.com/submissions/complete?cc=C13Q7C8J";
-
-      if (response.status !== 200) {
-        console.log("Response not okay");
-      }
-
-      return response.data;
-    } catch (error) {
-      console.error("Error submitting data:", error);
-      throw error;
-    }
-  };
   const [q1, setQ1] = useState("");
   const [q2, setQ2] = useState("");
   const [q3, setQ3] = useState("");
