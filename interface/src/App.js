@@ -67,10 +67,7 @@ function App() {
           <mTurkContext.Provider value={{ mTurk, addMTurk }}>
             <Router>
               <Routes>
-                <Route
-                  path="/convergent-thinking-thinking/"
-                  element={<Captcha />}
-                />
+                <Route path="/convergent-thinking/" element={<Captcha />} />
                 <Route
                   path="/convergent-thinking/instructabsent"
                   element={<InstructAbsent />}
