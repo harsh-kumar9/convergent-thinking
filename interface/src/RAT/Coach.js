@@ -89,17 +89,13 @@ const Coach = () => {
       const shuffledEasy = shuffleArray(easyRAT);
       const shuffledMedium = shuffleArray(mediumRAT);
       const shuffledHard = shuffleArray(hardRAT);
-      const trialArray = [
-        ...shuffledEasy.slice(0, 2),
-        ...shuffledMedium.slice(0, 2),
-        ...shuffledHard.slice(0, 2),
-      ];
-      const testArray = [shuffledEasy[3], shuffledMedium[3], shuffledHard[3]];
+      const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
+      const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
       return [
         shuffledEasy[3],
         ...shuffleArray(trialArray),
         "dummy",
-        ...shuffleArray(testArray),
+        shuffleArray(testArray)[0],
       ];
     });
     setShuffled(true);
@@ -110,14 +106,14 @@ const Coach = () => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
     setIdea(input);
     setInput(""); // clears the input form
-    if (promptId > 7) {
+    if (promptId > 4) {
       setTime(0);
     }
   };
   const nextQuestion = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
-    if (!(promptId === 7)) {
-      if (promptId < 7) {
+    if (!(promptId === 4)) {
+      if (promptId < 4) {
         addData({
           Round: "practice",
           Prompt: promptCopy[promptId][3],
@@ -133,16 +129,16 @@ const Coach = () => {
         });
       }
     }
-    if (promptId === 10) {
+    if (promptId === 5) {
       addData({ HideTime: outOfFocusTime });
       navigate("/convergent-thinking/feedback");
     } else {
       setPromptId(promptId + 1);
       // reset states and timer
-      if (promptId === 7) {
-        setTime(60);
+      if (promptId === 4) {
+        setTime(120);
       } else {
-        setTime(60);
+        setTime(120);
       }
       setInput("");
       setIdea("");
@@ -150,7 +146,7 @@ const Coach = () => {
     }
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(120);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -168,7 +164,7 @@ const Coach = () => {
 
   useEffect(() => {
     if (time === 0) {
-      if (promptId === 10) {
+      if (promptId === 5) {
         if (idea == "") {
           setOutofTime(true);
         } else {
@@ -182,10 +178,10 @@ const Coach = () => {
           navigate("/convergent-thinking/feedback");
         }
       } else {
-        if (promptId == 0 || promptId == 7) {
+        if (promptId == 0 || promptId == 4) {
           setPromptId(promptId + 1);
           // reset states and timer
-          setTime(60);
+          setTime(120);
           setInput("");
           setIdea("");
           setOutofTime(false);
@@ -204,8 +200,8 @@ const Coach = () => {
   let practice = "Practice Round:";
   let test = "Test Round:";
 
-  return !(promptId === 7) ? (
-    promptId > 7 ? (
+  return !(promptId === 4) ? (
+    promptId > 4 ? (
       <div className="h-screen w-screen place-items-center justify-center flex text-3xl font-semibold space-y-8 p-8 bg-cover">
         <div className="flex flex-row space-x-4 p-4 w-full h-full place-items-center justify-center rounded-[60px]">
           <div
@@ -216,9 +212,9 @@ const Coach = () => {
               <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
                 <div className="col-start-1 place-items-center">
                   <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
-                    {promptId < 7
-                      ? practice.concat(" ", promptId.toString(), "/6")
-                      : test.concat(" ", (promptId - 7).toString(), "/3")}
+                    {promptId < 4
+                      ? practice.concat(" ", promptId.toString(), "/3")
+                      : test.concat(" ", (promptId - 4).toString(), "/1")}
                   </span>
                 </div>
                 <div></div>
@@ -334,9 +330,9 @@ const Coach = () => {
               <div className="grid grid-cols-3 place-items-center auto-cols-min mb-4 mt-8">
                 <div className="col-start-1 place-items-center">
                   <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
-                    {promptId < 7
-                      ? practice.concat(" ", promptId.toString(), "/6")
-                      : test.concat(" ", (promptId - 7).toString(), "/3")}
+                    {promptId < 4
+                      ? practice.concat(" ", promptId.toString(), "/3")
+                      : test.concat(" ", (promptId - 4).toString(), "/1")}
                   </span>
                 </div>
                 <div></div>

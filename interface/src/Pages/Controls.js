@@ -7,7 +7,7 @@ import "./Controls.css";
 const Controls = () => {
   const navigate = useNavigate();
 
-  const experimentTypes = ["absent", "generate", "coach"];
+  const experimentTypes = ["absent", "generate"];
 
   const { data, addData } = useContext(DataContext);
 
