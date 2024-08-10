@@ -7,12 +7,12 @@ import "./Controls.css";
 const Controls = () => {
   const navigate = useNavigate();
 
-  const experimentTypes = ["absent", "generate", "coach"];
+  const experimentTypes = ["absent", "generate"];
 
   const { data, addData } = useContext(DataContext);
 
   useEffect(() => {
-    const randomType = experimentTypes[Math.floor(Math.random() * 3)];
+    const randomType = experimentTypes[Math.floor(Math.random() * 2)];
     console.log(randomType);
     addData(randomType);
     navigate(`/convergent-thinking/instruct${randomType}`);
