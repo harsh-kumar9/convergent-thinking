@@ -12,7 +12,7 @@ const Controls = () => {
   const { data, addData } = useContext(DataContext);
 
   useEffect(() => {
-    const randomType = experimentTypes[Math.floor(Math.random() * 3)];
+    const randomType = experimentTypes[Math.floor(Math.random() * 2)];
     console.log(randomType);
     addData(randomType);
     navigate(`/convergent-thinking/instruct${randomType}`);

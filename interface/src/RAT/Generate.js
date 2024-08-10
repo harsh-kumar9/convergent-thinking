@@ -136,7 +136,7 @@ const Generate = () => {
       setPromptId(promptId + 1);
       // reset states and timer
       if (promptId === 4) {
-        setTime(120);
+        setTime(60);
       } else {
         setTime(120);
       }
@@ -213,8 +213,8 @@ const Generate = () => {
                 <div className="col-start-1 place-items-center">
                   <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
                     {promptId < 4
-                      ? practice.concat(" ", promptId.toString(), "/6")
-                      : test.concat(" ", (promptId - 4).toString(), "/3")}
+                      ? practice.concat(" ", promptId.toString(), "/3")
+                      : test.concat(" ", (promptId - 4).toString(), "/1")}
                   </span>
                 </div>
                 <div></div>
@@ -331,8 +331,8 @@ const Generate = () => {
                 <div className="col-start-1 place-items-center">
                   <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
                     {promptId < 4
-                      ? practice.concat(" ", promptId.toString(), "/6")
-                      : test.concat(" ", (promptId - 4).toString(), "/3")}
+                      ? practice.concat(" ", promptId.toString(), "/3")
+                      : test.concat(" ", (promptId - 4).toString(), "/1")}
                   </span>
                 </div>
                 <div></div>
