@@ -58,7 +58,7 @@ const Consent = () => {
             </strong>
           </p>
           <p className="text-main mb-2">
-            We expect the survey to take around <strong>15 minutes</strong> to
+            We expect the survey to take around <strong>10 minutes</strong> to
             complete. If you are a <em>Mechanical Turk worker</em>, you will
             receive the monetary amount detailed on Mechanical Turk as
             compensation for your time. If you were recruited offline, you will
