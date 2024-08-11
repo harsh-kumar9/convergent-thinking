@@ -59,12 +59,7 @@ const Consent = () => {
           </p>
           <p className="text-main mb-2">
             We expect the survey to take around <strong>10 minutes</strong> to
-            complete. If you are a <em>Mechanical Turk worker</em>, you will
-            receive the monetary amount detailed on Mechanical Turk as
-            compensation for your time. If you were recruited offline, you will
-            be entered into a draw for <strong>5 USD Amazon gift cards</strong>.
-            Odds are detailed in the advertisement post, but you can expect a
-            winning probability of at least 30%.
+            complete.
           </p>
           <p className="text-main mb-2">
             As the results of this evaluation will be of interest to a wide
@@ -79,15 +74,7 @@ const Consent = () => {
             You may decline to participate or withdraw at any time without
             penalty. If you decide to withdraw from the study after
             participating, you may do so any time before the results are
-            published. If you wish to withdraw during your participation in
-            Mechanical Turk, you may simply close the browser window with the
-            experiment and return the HIT.
-          </p>
-          <p className="text-main mb-2">
-            Note that you will be compensated only after you have completed the
-            activity and have successfully verified your{" "}
-            <strong>Mechanical Turk ID</strong>. Please allow{" "}
-            <strong>2-3 days</strong> for this process.
+            published.
           </p>
           <p className="text-main mb-2">
             For an independent opinion regarding the research and the rights of
