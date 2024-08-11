@@ -40,7 +40,7 @@ const InstructFluency = () => {
         <p className="text-xl mb-2">
           To begin, you will complete a quick verbal fluency task. On the next
           screen you will be shown a letter of the alphabet and have{" "}
-          <b>1 minute</b> to list as many words as you can that begin with that
+          <b>1 minute</b> to list as many english words as you can that begin with that
           letter. None of the words can be numbers or names of people.
         </p>
         <p className="text-xl mb-8">
