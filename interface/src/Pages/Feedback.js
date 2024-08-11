@@ -120,7 +120,7 @@ const Feedback = () => {
       >
         <h2 className="text-3xl mb-8">
           Please answer the following questions. You must complete these and
-          click submit below to complete the HIT and get paid.
+          click submit below to complete the task and get paid.
         </h2>
 
         {/* Question 1 */}
@@ -278,7 +278,7 @@ const Feedback = () => {
         {/* Technical issues question */}
         <div className="mb-4">
           <h2 className="text-2xl mb-2">
-            5. Did you have any technical issues during the HIT?
+            5. Did you have any technical issues during the task?
           </h2>
           <textarea
             name="q5"
