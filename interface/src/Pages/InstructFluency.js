@@ -64,7 +64,7 @@ const InstructFluency = () => {
         <p className="text-xl  mb-8" >
         The experiment will be ruined if you take screenshots or use external tools to do this task. So please do not do so! In fact, you have no reason to do so because you are not paid based on performance.
         </p>
-        <div><img src={"/cheat-icon.png"} alt="No screenshots or external tools allowed" style={{maxWidth: "40%", height: "auto", display: "block", margin: "0px auto"}}/></div>
+        <div><img src={"/convergent-thinking/cheat-icon.png"} alt="No screenshots or external tools allowed" style={{maxWidth: "40%", height: "auto", display: "block", margin: "0px auto"}}/></div>
         <hr style={{ marginTop: "20px", marginBottom: "20px" }} />
         <label className="text-xl mt-2">
           <input type="checkbox" checked={checked} onChange={handleCheck} />
