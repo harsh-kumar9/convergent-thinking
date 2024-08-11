@@ -59,7 +59,7 @@ const Consent = () => {
           </p>
           <p className="text-main mb-2">
             We expect the survey to take around <strong>10 minutes</strong> to
-            complete.
+            complete.If you are a Prolific worker, you will receive the monetary amount detailed on Prolific as compensation for your time. If you were recruited offline, you will be entered into a draw for 5 USD Amazon gift cards. Odds are detailed in the advertisement post, but you can expect a winning probability of at least 30%.
           </p>
           <p className="text-main mb-2">
             As the results of this evaluation will be of interest to a wide
@@ -71,10 +71,10 @@ const Consent = () => {
             part of the de-identified data used for any published reports.
           </p>
           <p className="text-main mb-2">
-            You may decline to participate or withdraw at any time without
-            penalty. If you decide to withdraw from the study after
-            participating, you may do so any time before the results are
-            published.
+            You may decline to participate or withdraw at any time without penalty. If you decide to withdraw from the study after participating, you may do so any time before the results are published. If you wish to withdraw during your participation in Prolific, you may simply close the browser window with the experiment and return the task.
+          </p>
+              <p className="text-main mb-2">
+            Note that you will be compensated only after you have completed the activity and have successfully verified your Prolific ID. Please allow 2-3 days for this process.
           </p>
           <p className="text-main mb-2">
             For an independent opinion regarding the research and the rights of
