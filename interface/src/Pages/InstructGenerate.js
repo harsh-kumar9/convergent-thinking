@@ -43,7 +43,7 @@ const InstructGenerate = () => {
         <h1 className="text-3xl font-bold mb-4">Introduction</h1>
 
         <p className="text-2xl mb-2">
-          In this HIT, You will be shown sets of three words at a time. For each
+          In this task, You will be shown sets of three words at a time. For each
           set of three words, you will be asked to generate a fourth word that
           connects or fits with all three words. Specifically, the word that you
           generate, when combined with each of the three stimulus words, should
