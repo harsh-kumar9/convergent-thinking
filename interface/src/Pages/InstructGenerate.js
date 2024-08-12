@@ -119,9 +119,9 @@ const InstructGenerate = () => {
         </o1>
         <p className="text-2xl mb-8">
           Write down only the fourth word (i.e., "book" and "ice") as your
-          answers. You will have 1 minute for each task. Once you click submit,
-          you will not be able to change your answer. There will be 6 practice
-          rounds, followed by a short break, then 3 test rounds.
+          answers. You will have 2 minutes for each task. Once you click submit,
+          you will not be able to change your answer. There will be 3 practice
+          rounds, followed by a short break, then 1 test round.
         </p>
 
         <p className="text-2xl mb-8">
