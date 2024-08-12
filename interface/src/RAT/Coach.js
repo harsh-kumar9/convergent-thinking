@@ -136,7 +136,7 @@ const Coach = () => {
       setPromptId(promptId + 1);
       // reset states and timer
       if (promptId === 4) {
-        setTime(120);
+        setTime(60);
       } else {
         setTime(120);
       }
@@ -438,7 +438,7 @@ const Coach = () => {
                     </text> */}
             <div
               onCopy={preventDefaultAction}
-              className="text-black flex-grow place-items-center select-none h-5/6 text-xs bg-orange-600 rounded-b-[20px] rounded-lg mt-4 p-2 whitespace-pre-line overflow-auto"
+              className="text-black flex-grow place-items-center select-none h-5/6 text-base bg-orange-600 rounded-b-[20px] rounded-lg mt-4 p-2 whitespace-pre-line overflow-auto"
               style={{
                 backgroundColor: "rgba(71, 85, 105, 0.18)",
                 maxWidth: "800px",

@@ -65,6 +65,9 @@ const InstructFluency = () => {
         The experiment will be ruined if you take screenshots or use external tools to do this task. So please do not do so! In fact, you have no reason to do so because you are not paid based on performance.
         </p>
         <div><img src={"/convergent-thinking/cheat-icon.png"} alt="No screenshots or external tools allowed" style={{maxWidth: "40%", height: "auto", display: "block", margin: "0px auto"}}/></div>
+        <p className="text-xl font-bold mb-8" style={{color: "red"}}>
+        Please do not refresh the page. If you refresh the page, you will lose any progress you have made and may not receive any compensation.
+        </p>
         <hr style={{ marginTop: "20px", marginBottom: "20px" }} />
         <label className="text-xl mt-2">
           <input type="checkbox" checked={checked} onChange={handleCheck} />
