@@ -312,7 +312,7 @@ const Absent = () => {
             </div>
           )}
           <h2 className="text-black mb-4 text-2xl text-center mt-4">
-            No AI help this experiment.
+             
           </h2>
           <div className="p-2"></div>
         </div>
