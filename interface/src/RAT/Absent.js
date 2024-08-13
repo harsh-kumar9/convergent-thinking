@@ -106,9 +106,6 @@ const Absent = () => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
     setIdea(input);
     setIsEditing(false);
-    if (promptId > 4) {
-      setTime(0);
-    }
   };
   const nextQuestion = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
@@ -303,7 +300,7 @@ const Absent = () => {
               <div className="place-items-center items-center"></div>
             </div>
           </form>
-          {time > 0 || idea === "" || isEditing ? (
+          {((time > 0 || idea === "" || isEditing) && promptId <= 4) || (promptId > 4 && (idea === "" || isEditing))? (
             <div className="place-items-center items-center"></div>
           ) : (
             <div className="text-center place-items-center items-center">

@@ -107,9 +107,6 @@ const Coach = () => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
     setIdea(input);
     setIsEditing(false);
-    if (promptId > 4) {
-      setTime(0);
-    }
   };
   const nextQuestion = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
@@ -137,9 +134,9 @@ const Coach = () => {
       setPromptId(promptId + 1);
       // reset states and timer
       if (promptId === 3) {
-        setTime(5);
+        setTime(60);
       } else {
-        setTime(10);
+        setTime(120);
       }
       setInput("");
       setIdea("");
@@ -147,7 +144,7 @@ const Coach = () => {
     }
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState(120);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -182,7 +179,7 @@ const Coach = () => {
         if (promptId == 0 || promptId == 4) {
           setPromptId(promptId + 1);
           // reset states and timer
-          setTime(10);
+          setTime(120);
           setInput("");
           setIdea("");
           setOutofTime(false);
@@ -304,12 +301,12 @@ const Coach = () => {
                 )}
               </div>
             </form>
-            {time > 0 || idea === "" || isEditing? (
+            {idea === "" || isEditing? (
               <div className="place-items-center items-center"></div>
             ) : (
               <div className="text-center place-items-center items-center">
                 <input
-                  value="NEXT QUESTION"
+                  value="FINISH TASK"
                   type="button"
                   onClick={nextQuestion}
                   className="text-black text-center bg-green-400 outline outline-2 rounded-md font-bold text-xxl p-1 pl-2 hover:bg-slate-100"
