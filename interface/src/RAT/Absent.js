@@ -180,7 +180,12 @@ const Absent = () => {
         if (promptId == 0 || promptId == 4) {
           setPromptId(promptId + 1);
           // reset states and timer
-          setTime(120);
+          if(promptId == 4){
+            setTime(60);
+          }
+          else{
+            setTime(120);
+          }
           setInput("");
           setIdea("");
           setOutofTime(false);
