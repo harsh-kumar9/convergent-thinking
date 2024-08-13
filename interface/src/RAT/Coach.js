@@ -27,6 +27,7 @@ const Coach = () => {
   const [outOfTime, setOutofTime] = useState(false);
   const [prompts, setPrompts] = useState([]);
   const { data, addData } = useContext(DataContext);
+  const [isEditing, setIsEditing] = useState(true);
 
   const navigate = useNavigate();
 
@@ -105,7 +106,7 @@ const Coach = () => {
     // e is short for event
     e.preventDefault(); // prevents page from refreshing upon clicking submit
     setIdea(input);
-    setInput(""); // clears the input form
+    setIsEditing(false);
     if (promptId > 4) {
       setTime(0);
     }
@@ -135,10 +136,10 @@ const Coach = () => {
     } else {
       setPromptId(promptId + 1);
       // reset states and timer
-      if (promptId === 4) {
-        setTime(60);
+      if (promptId === 3) {
+        setTime(5);
       } else {
-        setTime(120);
+        setTime(10);
       }
       setInput("");
       setIdea("");
@@ -146,7 +147,7 @@ const Coach = () => {
     }
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(120);
+  const [time, setTime] = useState(10);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -165,7 +166,7 @@ const Coach = () => {
   useEffect(() => {
     if (time === 0) {
       if (promptId === 5) {
-        if (idea == "") {
+        if (idea == "" || isEditing) {
           setOutofTime(true);
         } else {
           addData({
@@ -181,16 +182,11 @@ const Coach = () => {
         if (promptId == 0 || promptId == 4) {
           setPromptId(promptId + 1);
           // reset states and timer
-          if(promptId == 4){
-            setTime(60);
-          }
-          else{
-            setTime(120);
-          }
+          setTime(10);
           setInput("");
           setIdea("");
           setOutofTime(false);
-        } else if (idea == "") {
+        } else if (idea == "" || isEditing) {
           setOutofTime(true);
         }
       }
@@ -235,7 +231,7 @@ const Coach = () => {
                   </span>
                 </div>
               </div>
-            ) : idea == "" ? (
+            ) : idea == "" || isEditing? (
               <div className="flex justify-center place-items-center mb-4 mt-8">
                 <span
                   style={{
@@ -274,7 +270,7 @@ const Coach = () => {
                   {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
                   {promptCopy[promptId][2]}
                 </h2>
-                {idea === "" ? (
+                {idea === ""  || isEditing? (
                   <div className="float-right">
                     <input
                       type="text"
@@ -291,10 +287,13 @@ const Coach = () => {
                     />
                   </div>
                 ) : time > 0 ? (
-                  <div className="float-right">
+                  <div className="float-right flex">
                     <h2 className="text-black underline text-4xl pr-100 p-1">
                       {idea}
                     </h2>
+                    <button
+                    onClick={() => setIsEditing(true)}
+                  >✏️</button>
                   </div>
                 ) : (
                   <div className="flex flex-1 justify justify-end pt-2 pb-2">
@@ -305,7 +304,7 @@ const Coach = () => {
                 )}
               </div>
             </form>
-            {time > 0 || idea === "" ? (
+            {time > 0 || idea === "" || isEditing? (
               <div className="place-items-center items-center"></div>
             ) : (
               <div className="text-center place-items-center items-center">
@@ -353,7 +352,7 @@ const Coach = () => {
                   </span>
                 </div>
               </div>
-            ) : idea == "" ? (
+            ) : idea == "" || isEditing? (
               <div className="flex justify-center place-items-center mb-4 mt-8">
                 <span
                   style={{
@@ -392,7 +391,7 @@ const Coach = () => {
                   {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
                   {promptCopy[promptId][2]}
                 </h2>
-                {idea === "" ? (
+                {idea === "" || isEditing ? (
                   <div className="float-right">
                     <input
                       type="text"
@@ -409,10 +408,13 @@ const Coach = () => {
                     />
                   </div>
                 ) : time > 0 ? (
-                  <div className="float-right">
+                  <div className="float-right flex">
                     <h2 className="text-black underline text-4xl pr-100 p-1">
                       {idea}
                     </h2>
+                    <button
+                    onClick={() => setIsEditing(true)}
+                  >✏️</button>
                   </div>
                 ) : (
                   <div className="flex flex-1 justify justify-end pt-2 pb-2">
@@ -423,7 +425,7 @@ const Coach = () => {
                 )}
               </div>
             </form>
-            {time > 0 || idea === "" ? (
+            {time > 0 || idea === "" || isEditing? (
               <div className="place-items-center items-center"></div>
             ) : (
               <div className="text-center place-items-center items-center">

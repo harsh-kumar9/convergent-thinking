@@ -14,13 +14,16 @@ const Feedback = () => {
   const [sliderValue, setSliderValue] = useState(null);
   // console.log(mTurk.assignmentId);
   // console.log(mTurk.workerId);
-
+  const handleChange = (event) => {
+    setSliderValue(event.target.value);
+  };
   // const [date, setDate] = useState(new Date());
   const [q1, setQ1] = useState("");
   const [q2, setQ2] = useState("");
   const [q3, setQ3] = useState("");
   const [q4, setq4] = useState("");
   const [q5, setq5] = useState("");
+  const [q6, setq6] = useState("");
   const submitData = async (data) => {
     try {
       const response = await axios.post(
@@ -56,7 +59,9 @@ const Feedback = () => {
       !(q2 === "") &&
       !(q3 === "") &&
       !(q4 === "") &&
-      !(q5 === "")
+      !(q5 === "") &&
+      !(q6 === "") &&
+      !(sliderValue === null)
     ) {
       // Prepare feedback responses for submission
       const feedbackData = {
@@ -65,6 +70,8 @@ const Feedback = () => {
         q3,
         q4,
         q5,
+        q6,
+        sliderValue
       };
 
       // Optionally, update your application state with new feedback data
@@ -99,9 +106,11 @@ const Feedback = () => {
       !(q2 === "") &&
       !(q3 === "") &&
       !(q4 === "") &&
-      !(q5 === "")
+      !(q5 === "") &&
+      !(q6 === "") &&
+      !(sliderValue === null)
     ) {
-      alert("Please select a value for Question 4 (Slider)");
+      alert("Please answer all the questions to proceed");
       return;
     } else {
       alert("Please read the instructions & answer all questions to proceed");
@@ -126,8 +135,7 @@ const Feedback = () => {
         {/* Question 1 */}
         <div className="text-2xl flex flex-col mb-4">
           <h2>
-            1. How difficult was it to come up the associated word for the last
-            three tasks?
+            1. How difficult was it to come up the associated word for the (test) task?
           </h2>
           {/* Options for Question 1 */}
           <label>
@@ -259,7 +267,7 @@ const Feedback = () => {
             Agree
           </label>
         </div>
-
+        
         {/* New question */}
         <div className="mb-4">
           <h2 className="text-2xl mb-2">
@@ -288,7 +296,66 @@ const Feedback = () => {
             style={{ resize: "none" }} // Optional: prevents the user from resizing the textarea
           ></textarea>
         </div>
-
+        {/* Question 6 */}
+        <div className="text-2xl flex flex-col mb-4">
+          <h2>6. How helpful was the practice round (first three questions)?</h2>
+          {/* Options for Question 3 */}
+          <label>
+            <input
+              type="radio"
+              name="q6"
+              value="Not at all helpful"
+              checked={q3 === "Not at all helpful"}
+              className="mr-2"
+              onChange={(e) => setq6(e.target.value)}
+            />
+            Not at all helpful
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="q6"
+              value="A little helpful"
+              checked={q3 === "A little helpful"}
+              className="mr-2"
+              onChange={(e) => setq6(e.target.value)}
+            />
+            A little helpful
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="q6"
+              value="Very helpful"
+              checked={q3 === "Very helpful"}
+              className="mr-2"
+              onChange={(e) => setq6(e.target.value)}
+            />
+            Very helpful
+          </label>
+          <div className="text-2xl flex items-center justify-center space-x-8 mb-4">
+          <label>
+            7. Adjust the slider:{" "}
+            <i>
+              I am more creative than{" "}
+              <b>
+                <span>{sliderValue}%</span>
+              </b>{" "}
+              of humans
+            </i>
+          </label>
+          <input
+            type="range"
+            id="creative-slider"
+            name="creative-slider"
+            min="0"
+            max="100"
+            // Conditionally render the value only if sliderValue is not null
+            value={sliderValue ?? ""}
+            onChange={handleChange}
+          />
+        </div>
+        </div>
         {/* Hidden inputs for MTurk */}
         <input type="hidden" name="assignmentId" value={mTurk.assignmentId} />
         <input type="hidden" name="hitId" value={mTurk.hitId} />

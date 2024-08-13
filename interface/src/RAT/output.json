@@ -125,7 +125,7 @@
     },
     "sick": {
         "gpt-4": "Answer: Seashell. (Home Seashell, Sea Seashell, Bed Seashell)",
-        "gpt-4-coach": ""
+        "gpt-4-coach": "Possible associated words for \"home\" are house, family, shelter, warmth, and residence.\r\n\r\nPossible associated words for \"sea\" are ocean, waves, saltwater, marine, and ship.\r\n\r\nPossible associated words for \"bed\" are sleep, mattress, rest, pillow, and blanket.\r\n\r\nNow, try to identify any connections between these words and see if you can come up with a fourth word that is associated with all three. Don't forget to jot down the words on paper if it helps you see any connections. Keep up the great work!"
     },
     "head": {
         "gpt-4": "Answer: Head. (Hammerhead, Gearhead, Hunter's Head)",
