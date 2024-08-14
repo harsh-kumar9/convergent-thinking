@@ -59,8 +59,8 @@ const Feedback = () => {
       !(q2 === "") &&
       !(q3 === "") &&
       !(q4 === "") &&
-      !(q5 === "") &&
       !(q6 === "") &&
+      !(q7 === "") &&
       !(sliderValue === null)
     ) {
       // Prepare feedback responses for submission
@@ -69,8 +69,8 @@ const Feedback = () => {
         q2,
         q3,
         q4,
-        q5,
         q6,
+        q7,
         sliderValue
       };
 
@@ -106,8 +106,8 @@ const Feedback = () => {
       !(q2 === "") &&
       !(q3 === "") &&
       !(q4 === "") &&
-      !(q5 === "") &&
       !(q6 === "") &&
+      !(q7 === "") &&
       !(sliderValue === null)
     ) {
       alert("Please answer all the questions to proceed");
@@ -267,45 +267,15 @@ const Feedback = () => {
             Agree
           </label>
         </div>
-        
-        {/* New question */}
-        <div className="mb-4">
-          <h2 className="text-2xl mb-2">
-            4. What was your strategy for coming up with associated word for the
-            last three objects?
-          </h2>
-          <textarea
-            name="q4"
-            value={q4}
-            onChange={(e) => setq4(e.target.value)}
-            className="text-lg p-2 w-full h-32 text-black" // Adjust width (w-full for full width) and height (h-32 for height) as needed
-            style={{ resize: "none" }} // Optional: prevents the user from resizing the textarea
-          ></textarea>
-        </div>
-
-        {/* Technical issues question */}
-        <div className="mb-4">
-          <h2 className="text-2xl mb-2">
-            5. Did you have any technical issues during the task?
-          </h2>
-          <textarea
-            name="q5"
-            value={q5}
-            onChange={(e) => setq5(e.target.value)}
-            className="text-lg p-2 w-full h-32 text-black" // Adjust width (w-full for full width) and height (h-32 for height) as needed
-            style={{ resize: "none" }} // Optional: prevents the user from resizing the textarea
-          ></textarea>
-        </div>
-        {/* Question 6 */}
         <div className="text-2xl flex flex-col mb-4">
-          <h2>6. How helpful was the practice round (first three questions)?</h2>
+          <h2>4. How helpful was the practice round (first three questions)?</h2>
           {/* Options for Question 3 */}
           <label>
             <input
               type="radio"
               name="q6"
               value="Not at all helpful"
-              checked={q3 === "Not at all helpful"}
+              checked={q4 === "Not at all helpful"}
               className="mr-2"
               onChange={(e) => setq6(e.target.value)}
             />
@@ -316,7 +286,7 @@ const Feedback = () => {
               type="radio"
               name="q6"
               value="A little helpful"
-              checked={q3 === "A little helpful"}
+              checked={q4 === "A little helpful"}
               className="mr-2"
               onChange={(e) => setq6(e.target.value)}
             />
@@ -327,35 +297,65 @@ const Feedback = () => {
               type="radio"
               name="q6"
               value="Very helpful"
-              checked={q3 === "Very helpful"}
+              checked={q4 === "Very helpful"}
               className="mr-2"
               onChange={(e) => setq6(e.target.value)}
             />
             Very helpful
           </label>
           <div className="text-2xl flex items-center justify-center space-x-8 mb-4">
-          <label>
-            7. Adjust the slider:{" "}
-            <i>
-              I am more creative than{" "}
-              <b>
-                <span>{sliderValue}%</span>
-              </b>{" "}
-              of humans
-            </i>
-          </label>
-          <input
-            type="range"
-            id="creative-slider"
-            name="creative-slider"
-            min="0"
-            max="100"
-            // Conditionally render the value only if sliderValue is not null
-            value={sliderValue ?? ""}
-            onChange={handleChange}
-          />
+            <label>
+              5. Adjust the slider:{" "}
+              <i>
+                I am more creative than{" "}
+                <b>
+                  <span>{sliderValue}%</span>
+                </b>{" "}
+                of humans
+              </i>
+            </label>
+            <input
+              type="range"
+              id="creative-slider"
+              name="creative-slider"
+              min="0"
+              max="100"
+              // Conditionally render the value only if sliderValue is not null
+              value={sliderValue ?? ""}
+              onChange={handleChange}
+            />
+          </div>
         </div>
+        {/* New question */}
+        <div className="mb-4">
+          <h2 className="text-2xl mb-2">
+            6. What was your strategy for coming up with associated word for the
+            last three objects?
+          </h2>
+          <textarea
+            name="q6"
+            value={q6}
+            onChange={(e) => setq4(e.target.value)}
+            className="text-lg p-2 w-full h-32 text-black" // Adjust width (w-full for full width) and height (h-32 for height) as needed
+            style={{ resize: "none" }} // Optional: prevents the user from resizing the textarea
+          ></textarea>
         </div>
+
+        {/* Technical issues question */}
+        <div className="mb-4">
+          <h2 className="text-2xl mb-2">
+            7. Did you have any technical issues during the task?
+          </h2>
+          <textarea
+            name="q7"
+            value={q7}
+            onChange={(e) => setq5(e.target.value)}
+            className="text-lg p-2 w-full h-32 text-black" // Adjust width (w-full for full width) and height (h-32 for height) as needed
+            style={{ resize: "none" }} // Optional: prevents the user from resizing the textarea
+          ></textarea>
+        </div>
+        {/* Question 6 */}
+        
         {/* Hidden inputs for MTurk */}
         <input type="hidden" name="assignmentId" value={mTurk.assignmentId} />
         <input type="hidden" name="hitId" value={mTurk.hitId} />

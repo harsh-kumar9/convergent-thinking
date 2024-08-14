@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { DataContext } from "../App";
 import ReactTyped from "react-typed";
 import { json, useNavigate } from "react-router-dom";
-import { easyRAT, mediumRAT, hardRAT } from "./Prompts";
+import { easyRAT, mediumRAT, hardRAT, pilotRAT } from "./Prompts";
 import background from "../assets/blur-background.svg";
 import Game from "../Game/Game";
 import prompt_json from "./output.json";
