@@ -58,7 +58,7 @@ const Consent = () => {
             </strong>
           </p>
           <p className="text-main mb-2">
-            We expect the survey to take around <strong>10 minutes</strong> to
+            We expect the survey to take around <strong>7 minutes</strong> to
             complete.If you are a Prolific worker, you will receive the monetary amount detailed on Prolific as compensation for your time. If you were recruited offline, you will be entered into a draw for 5 USD Amazon gift cards. Odds are detailed in the advertisement post, but you can expect a winning probability of at least 30%.
           </p>
           <p className="text-main mb-2">

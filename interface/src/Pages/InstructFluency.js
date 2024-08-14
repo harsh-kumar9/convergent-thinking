@@ -46,7 +46,7 @@ const InstructFluency = () => {
         <p className="text-xl mb-8">
           For example, if shown the letter B, you could say brown, bottle, or
           bake, but you wouldn’t say Barbara, Boston or billion. Also, please
-          try not to give me the same word with different endings, so if you
+          try not to give us the same word with different endings, so if you
           said bake, you wouldn’t also say baked or bakes, and if you said big,
           you wouldn’t also say bigger and biggest.
         </p>

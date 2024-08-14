@@ -26,6 +26,7 @@ const Feedback = () => {
   const [q7, setq7] = useState("");
   const submitData = async (data) => {
     try {
+      console.log("attempt")
       const response = await axios.post(
         "https://creative-gpt.azurewebsites.net/api/httptrigger2?code=SfnloefDXU04OK8Ao4QAvrwDRNIBeoDKWmco5VKt33xSAzFukmwSbw%3D%3D",
         data,
@@ -37,6 +38,7 @@ const Feedback = () => {
       );
 
       // Redirect to the Prolific URL
+      console.log("here")
       window.location.href =
         "https://app.prolific.com/submissions/complete?cc=C1EXYXN1";
 
@@ -46,6 +48,7 @@ const Feedback = () => {
       
       return response.data;
     } catch (error) {
+      console.log(error)
       console.error("Error submitting data:", error);
       throw error;
     }
@@ -135,7 +138,7 @@ const Feedback = () => {
         {/* Question 1 */}
         <div className="text-2xl flex flex-col mb-4">
           <h2>
-            1. How difficult was it to come up the associated word for the (test) task?
+            1. How difficult was it to come up the associated word for the last (test) task?
           </h2>
           {/* Options for Question 1 */}
           <label>
