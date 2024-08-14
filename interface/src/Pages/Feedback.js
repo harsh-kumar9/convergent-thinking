@@ -22,8 +22,8 @@ const Feedback = () => {
   const [q2, setQ2] = useState("");
   const [q3, setQ3] = useState("");
   const [q4, setq4] = useState("");
-  const [q5, setq5] = useState("");
   const [q6, setq6] = useState("");
+  const [q7, setq7] = useState("");
   const submitData = async (data) => {
     try {
       const response = await axios.post(
@@ -38,12 +38,12 @@ const Feedback = () => {
 
       // Redirect to the Prolific URL
       window.location.href =
-        "https://app.prolific.com/submissions/complete?cc=C13Q7C8J";
+        "https://app.prolific.com/submissions/complete?cc=C1EXYXN1";
 
       if (response.status !== 200) {
         console.log("Response not okay");
       }
-
+      
       return response.data;
     } catch (error) {
       console.error("Error submitting data:", error);
@@ -273,33 +273,33 @@ const Feedback = () => {
           <label>
             <input
               type="radio"
-              name="q6"
+              name="q4"
               value="Not at all helpful"
               checked={q4 === "Not at all helpful"}
               className="mr-2"
-              onChange={(e) => setq6(e.target.value)}
+              onChange={(e) => setq4(e.target.value)}
             />
             Not at all helpful
           </label>
           <label>
             <input
               type="radio"
-              name="q6"
+              name="q4"
               value="A little helpful"
               checked={q4 === "A little helpful"}
               className="mr-2"
-              onChange={(e) => setq6(e.target.value)}
+              onChange={(e) => setq4(e.target.value)}
             />
             A little helpful
           </label>
           <label>
             <input
               type="radio"
-              name="q6"
+              name="q4"
               value="Very helpful"
               checked={q4 === "Very helpful"}
               className="mr-2"
-              onChange={(e) => setq6(e.target.value)}
+              onChange={(e) => setq4(e.target.value)}
             />
             Very helpful
           </label>
@@ -335,7 +335,7 @@ const Feedback = () => {
           <textarea
             name="q6"
             value={q6}
-            onChange={(e) => setq4(e.target.value)}
+            onChange={(e) => setq6(e.target.value)}
             className="text-lg p-2 w-full h-32 text-black" // Adjust width (w-full for full width) and height (h-32 for height) as needed
             style={{ resize: "none" }} // Optional: prevents the user from resizing the textarea
           ></textarea>
@@ -349,7 +349,7 @@ const Feedback = () => {
           <textarea
             name="q7"
             value={q7}
-            onChange={(e) => setq5(e.target.value)}
+            onChange={(e) => setq7(e.target.value)}
             className="text-lg p-2 w-full h-32 text-black" // Adjust width (w-full for full width) and height (h-32 for height) as needed
             style={{ resize: "none" }} // Optional: prevents the user from resizing the textarea
           ></textarea>
