@@ -87,3 +87,10 @@ export const hardRAT = [
   ["cry", "front", "ship", "battle"],
   ["land", "hand", "house", "farm"],
 ];
+
+export const pilotRAT = [
+  ["light", "birthday", "stick", "candle"],
+  ["trap", "back", "screen", "door"],
+  ["print", "berry", "bird", "blue"],
+  ["peach", "arm", "tar", "pit"],
+]

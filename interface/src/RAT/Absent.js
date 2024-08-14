@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { DataContext } from "../App";
 import ReactTyped from "react-typed";
 import { json, useNavigate } from "react-router-dom";
-import { easyRAT, mediumRAT, hardRAT } from "./Prompts";
+import { easyRAT, mediumRAT, hardRAT, pilotRAT } from "./Prompts";
 import background from "../assets/blur-background.svg";
 import Game from "../Game/Game";
 import prompt_json from "./output.json";
@@ -85,22 +85,34 @@ const Absent = () => {
     };
 
     // Set the randomized list in the state during component mount or refresh
+  //   setPromptCopy(() => {
+  //     const shuffledEasy = shuffleArray(easyRAT);
+  //     const shuffledMedium = shuffleArray(mediumRAT);
+  //     const shuffledHard = shuffleArray(hardRAT);
+  //     const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
+  //     const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
+  //     return [
+  //       shuffledEasy[3],
+  //       ...shuffleArray(trialArray),
+  //       "dummy",
+  //       shuffleArray(testArray)[0],
+  //     ];
+  //   });
+  //   setShuffled(true);
+  // }, []);
     setPromptCopy(() => {
-      const shuffledEasy = shuffleArray(easyRAT);
-      const shuffledMedium = shuffleArray(mediumRAT);
-      const shuffledHard = shuffleArray(hardRAT);
-      const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
-      const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
+      const shuffledList = shuffleArray(pilotRAT);
       return [
-        shuffledEasy[3],
-        ...shuffleArray(trialArray),
+        shuffledList[0],
+        shuffledList[0],
+        shuffledList[1],
+        shuffledList[2],
         "dummy",
-        shuffleArray(testArray)[0],
+        shuffledList[3],
       ];
     });
     setShuffled(true);
   }, []);
-
   const handleSubmit = (e) => {
     // e is short for event
     e.preventDefault(); // prevents page from refreshing upon clicking submit
@@ -136,7 +148,7 @@ const Absent = () => {
       if (promptId === 3) {
         setTime(60);
       } else {
-        setTime(120);
+        setTime(60);
       }
       setInput("");
       setIdea("");
@@ -144,7 +156,7 @@ const Absent = () => {
     }
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(120);
+  const [time, setTime] = useState(60);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -178,7 +190,7 @@ const Absent = () => {
       } else {
         if (promptId == 0 || promptId == 4) {
           setPromptId(promptId + 1);
-          setTime(120);
+          setTime(60);
           setInput("");
           setIdea("");
           setOutofTime(false);

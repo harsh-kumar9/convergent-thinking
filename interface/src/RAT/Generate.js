@@ -84,23 +84,35 @@ const Generate = () => {
       return array;
     };
 
-    // Set the randomized list in the state during component mount or refresh
-    setPromptCopy(() => {
-      const shuffledEasy = shuffleArray(easyRAT);
-      const shuffledMedium = shuffleArray(mediumRAT);
-      const shuffledHard = shuffleArray(hardRAT);
-      const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
-      const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
-      return [
-        shuffledEasy[3],
-        ...shuffleArray(trialArray),
-        "dummy",
-        shuffleArray(testArray)[0],
+  //   // Set the randomized list in the state during component mount or refresh
+  //   setPromptCopy(() => {
+  //     const shuffledEasy = shuffleArray(easyRAT);
+  //     const shuffledMedium = shuffleArray(mediumRAT);
+  //     const shuffledHard = shuffleArray(hardRAT);
+  //     const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
+  //     const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
+  //     return [
+  //       shuffledEasy[3],
+  //       ...shuffleArray(trialArray),
+  //       "dummy",
+  //       shuffleArray(testArray)[0],
+  //     ];
+  //   });
+  //   setShuffled(true);
+  // }, []);
+  setPromptCopy(() => {
+    const shuffledList = shuffleArray(pilotRAT);
+    return [
+      shuffledList[0],
+      shuffledList[0],
+      shuffledList[1],
+      shuffledList[2],
+      "dummy",
+      shuffledList[3],
       ];
     });
     setShuffled(true);
   }, []);
-
   const handleSubmit = (e) => {
     // e is short for event
     e.preventDefault(); // prevents page from refreshing upon clicking submit
@@ -135,7 +147,7 @@ const Generate = () => {
       if (promptId === 3) {
         setTime(60);
       } else {
-        setTime(120);
+        setTime(60);
       }
       setInput("");
       setIdea("");
@@ -143,7 +155,7 @@ const Generate = () => {
     }
   };
   // timer countdown in seconds
-  const [time, setTime] = useState(120);
+  const [time, setTime] = useState(60);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -178,7 +190,7 @@ const Generate = () => {
         if (promptId == 0 || promptId == 4) {
           setPromptId(promptId + 1);
           // reset states and timer
-          setTime(120)
+          setTime(60)
           setInput("");
           setIdea("");
           setOutofTime(false);
