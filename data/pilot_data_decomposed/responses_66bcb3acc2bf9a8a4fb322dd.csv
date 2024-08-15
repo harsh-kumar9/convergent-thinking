@@ -1,0 +1,81 @@
+workerid,hitId,condition,phase,item_name,response,onTime
+65cb605ecaa971e945546b63,66bcb3acc2bf9a8a4fb322dd,absent,practice,blue,cream,True
+65cb605ecaa971e945546b63,66bcb3acc2bf9a8a4fb322dd,absent,practice,candle,candle,True
+65cb605ecaa971e945546b63,66bcb3acc2bf9a8a4fb322dd,absent,practice,door,black,True
+65cb605ecaa971e945546b63,66bcb3acc2bf9a8a4fb322dd,absent,test,pit,black,True
+665a0b65c7e70e48ff7f2188,66bcb3acc2bf9a8a4fb322dd,coach,practice,candle,candle,True
+665a0b65c7e70e48ff7f2188,66bcb3acc2bf9a8a4fb322dd,coach,practice,pit,car,False
+665a0b65c7e70e48ff7f2188,66bcb3acc2bf9a8a4fb322dd,coach,practice,blue,blue,True
+665a0b65c7e70e48ff7f2188,66bcb3acc2bf9a8a4fb322dd,coach,test,door,sun,True
+5e73ed268c8f27364de746c5,66bcb3acc2bf9a8a4fb322dd,absent,practice,pit,Black,True
+5e73ed268c8f27364de746c5,66bcb3acc2bf9a8a4fb322dd,absent,practice,candle,Cake,True
+5e73ed268c8f27364de746c5,66bcb3acc2bf9a8a4fb322dd,absent,practice,door,Door,True
+5e73ed268c8f27364de746c5,66bcb3acc2bf9a8a4fb322dd,absent,test,blue,Black,True
+66b56fb7e630a6807aafcf31,66bcb3acc2bf9a8a4fb322dd,absent,practice,blue,BLUE,True
+66b56fb7e630a6807aafcf31,66bcb3acc2bf9a8a4fb322dd,absent,practice,pit,HEAVY,False
+66b56fb7e630a6807aafcf31,66bcb3acc2bf9a8a4fb322dd,absent,practice,candle,JOY,True
+66b56fb7e630a6807aafcf31,66bcb3acc2bf9a8a4fb322dd,absent,test,door,BAD,True
+62b072828cfef4de9971753b,66bcb3acc2bf9a8a4fb322dd,generate,practice,candle,candle light,True
+62b072828cfef4de9971753b,66bcb3acc2bf9a8a4fb322dd,generate,practice,door,door,True
+62b072828cfef4de9971753b,66bcb3acc2bf9a8a4fb322dd,generate,practice,blue,blue,True
+62b072828cfef4de9971753b,66bcb3acc2bf9a8a4fb322dd,generate,test,pit,squeeze,True
+66bbb0dda9cc4e6ef4b3e1e6,66bcb3acc2bf9a8a4fb322dd,coach,practice,door,catch,True
+66bbb0dda9cc4e6ef4b3e1e6,66bcb3acc2bf9a8a4fb322dd,coach,practice,pit,construction,True
+66bbb0dda9cc4e6ef4b3e1e6,66bcb3acc2bf9a8a4fb322dd,coach,practice,blue,flower,True
+66bbb0dda9cc4e6ef4b3e1e6,66bcb3acc2bf9a8a4fb322dd,coach,test,candle,candle,True
+657d19e9624566442ebc112f,66bcb3acc2bf9a8a4fb322dd,coach,practice,candle,event,False
+657d19e9624566442ebc112f,66bcb3acc2bf9a8a4fb322dd,coach,practice,door,support,True
+657d19e9624566442ebc112f,66bcb3acc2bf9a8a4fb322dd,coach,practice,pit,tear,False
+657d19e9624566442ebc112f,66bcb3acc2bf9a8a4fb322dd,coach,test,blue,sweet,True
+6696be83d1acdaafee806dae,66bcb3acc2bf9a8a4fb322dd,generate,practice,pit,PIT,True
+6696be83d1acdaafee806dae,66bcb3acc2bf9a8a4fb322dd,generate,practice,blue,BLUE,True
+6696be83d1acdaafee806dae,66bcb3acc2bf9a8a4fb322dd,generate,practice,door,PORCH,True
+6696be83d1acdaafee806dae,66bcb3acc2bf9a8a4fb322dd,generate,test,candle,CAKE,True
+6041090425e6e2086a2ba82d,66bcb3acc2bf9a8a4fb322dd,generate,practice,candle,candle,True
+6041090425e6e2086a2ba82d,66bcb3acc2bf9a8a4fb322dd,generate,practice,door,door,True
+6041090425e6e2086a2ba82d,66bcb3acc2bf9a8a4fb322dd,generate,practice,blue,blue,True
+6041090425e6e2086a2ba82d,66bcb3acc2bf9a8a4fb322dd,generate,test,pit,pit,True
+63287e459b46ae4db8542e9d,66bcb3acc2bf9a8a4fb322dd,coach,practice,blue,blueberry,True
+63287e459b46ae4db8542e9d,66bcb3acc2bf9a8a4fb322dd,coach,practice,door,backdoor,True
+63287e459b46ae4db8542e9d,66bcb3acc2bf9a8a4fb322dd,coach,practice,pit,no idea,True
+63287e459b46ae4db8542e9d,66bcb3acc2bf9a8a4fb322dd,coach,test,candle,Candlestick,True
+63a3375101319bb7cb39f654,66bcb3acc2bf9a8a4fb322dd,absent,practice,pit,band,True
+63a3375101319bb7cb39f654,66bcb3acc2bf9a8a4fb322dd,absent,practice,candle,bulb,True
+63a3375101319bb7cb39f654,66bcb3acc2bf9a8a4fb322dd,absent,practice,blue,seed,True
+63a3375101319bb7cb39f654,66bcb3acc2bf9a8a4fb322dd,absent,test,door,drop,True
+57d02eeec6c5ed00013fac58,66bcb3acc2bf9a8a4fb322dd,coach,practice,pit,black,True
+57d02eeec6c5ed00013fac58,66bcb3acc2bf9a8a4fb322dd,coach,practice,door,flat,True
+57d02eeec6c5ed00013fac58,66bcb3acc2bf9a8a4fb322dd,coach,practice,candle,candle,True
+57d02eeec6c5ed00013fac58,66bcb3acc2bf9a8a4fb322dd,coach,test,blue,black,True
+60fd7e8ba4ce504c0ad86690,66bcb3acc2bf9a8a4fb322dd,generate,practice,door,door,True
+60fd7e8ba4ce504c0ad86690,66bcb3acc2bf9a8a4fb322dd,generate,practice,blue,blue,True
+60fd7e8ba4ce504c0ad86690,66bcb3acc2bf9a8a4fb322dd,generate,practice,pit,tar,True
+60fd7e8ba4ce504c0ad86690,66bcb3acc2bf9a8a4fb322dd,generate,test,candle,candle,True
+66bcb38a6dd5be8472069812,66bcb3acc2bf9a8a4fb322dd,absent,practice,candle,Candle,False
+66bcb38a6dd5be8472069812,66bcb3acc2bf9a8a4fb322dd,absent,practice,pit,Light,True
+66bcb38a6dd5be8472069812,66bcb3acc2bf9a8a4fb322dd,absent,practice,door,Door,True
+66bcb38a6dd5be8472069812,66bcb3acc2bf9a8a4fb322dd,absent,test,blue,Box,True
+63e51bb5c20b885de5559a6a,66bcb3acc2bf9a8a4fb322dd,coach,practice,door,door,True
+63e51bb5c20b885de5559a6a,66bcb3acc2bf9a8a4fb322dd,coach,practice,pit,pit,True
+63e51bb5c20b885de5559a6a,66bcb3acc2bf9a8a4fb322dd,coach,practice,blue,blue,True
+63e51bb5c20b885de5559a6a,66bcb3acc2bf9a8a4fb322dd,coach,test,candle,candle,True
+5a4d5282c64cfe00011ca483,66bcb3acc2bf9a8a4fb322dd,generate,practice,pit,Pit,True
+5a4d5282c64cfe00011ca483,66bcb3acc2bf9a8a4fb322dd,generate,practice,door,Door,True
+5a4d5282c64cfe00011ca483,66bcb3acc2bf9a8a4fb322dd,generate,practice,blue,Blue,True
+5a4d5282c64cfe00011ca483,66bcb3acc2bf9a8a4fb322dd,generate,test,candle,Candle,False
+66ba9770b75c648d933115dd,66bcb3acc2bf9a8a4fb322dd,absent,practice,candle,light off / birthday light,False
+66ba9770b75c648d933115dd,66bcb3acc2bf9a8a4fb322dd,absent,practice,pit,peach drink/ arm rest/ tar road,True
+66ba9770b75c648d933115dd,66bcb3acc2bf9a8a4fb322dd,absent,practice,door,trap door/ back door/ phone screen,True
+66ba9770b75c648d933115dd,66bcb3acc2bf9a8a4fb322dd,absent,test,blue,print page/ black berry/ birdfly,True
+666b002b5f3a246f3c2cee76,66bcb3acc2bf9a8a4fb322dd,absent,practice,pit,Not sure,True
+666b002b5f3a246f3c2cee76,66bcb3acc2bf9a8a4fb322dd,absent,practice,candle,Cake,True
+666b002b5f3a246f3c2cee76,66bcb3acc2bf9a8a4fb322dd,absent,practice,blue,Blue,True
+666b002b5f3a246f3c2cee76,66bcb3acc2bf9a8a4fb322dd,absent,test,door,Touch,False
+66bb5a8abf79a4703261ac7f,66bcb3acc2bf9a8a4fb322dd,coach,practice,pit,gun/war/world,False
+66bb5a8abf79a4703261ac7f,66bcb3acc2bf9a8a4fb322dd,coach,practice,door,try/hand/laptop,True
+66bb5a8abf79a4703261ac7f,66bcb3acc2bf9a8a4fb322dd,coach,practice,blue,page/apple/fly,True
+66bb5a8abf79a4703261ac7f,66bcb3acc2bf9a8a4fb322dd,coach,test,candle,shine/day/tac,True
+62ace174fdaa82e4ff8e5c3e,66bcb3acc2bf9a8a4fb322dd,absent,practice,pit,jam,False
+62ace174fdaa82e4ff8e5c3e,66bcb3acc2bf9a8a4fb322dd,absent,practice,door,door,True
+62ace174fdaa82e4ff8e5c3e,66bcb3acc2bf9a8a4fb322dd,absent,practice,blue,black,False
+62ace174fdaa82e4ff8e5c3e,66bcb3acc2bf9a8a4fb322dd,absent,test,candle,candle,True

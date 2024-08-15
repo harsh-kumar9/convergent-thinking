@@ -1,0 +1,10 @@
+workerid,hitId,condition,phase,item_name,response,onTime
+test6193,test,generate,practice,table,tea,True
+test6193,test,generate,practice,super,sdf,False
+test6193,test,generate,practice,door,h,False
+test6193,test,generate,practice,brush,sd,False
+test6193,test,generate,practice,blue,sfdg,False
+test6193,test,generate,practice,common,sd,False
+test6193,test,generate,test,coat,sdf,False
+test6193,test,generate,test,camp,sd,True
+test6193,test,generate,test,key,sd,True
