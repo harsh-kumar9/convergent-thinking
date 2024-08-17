@@ -114,10 +114,16 @@ const Absent = () => {
     setShuffled(true);
   }, []);
   const handleSubmit = (e) => {
-    // e is short for event
     e.preventDefault(); // prevents page from refreshing upon clicking submit
-    setIdea(input);
-    setIsEditing(false);
+  
+    // Check if input is a single word
+    const word = input.trim();
+    if (word.split(" ").length === 1) {
+      setIdea(word);
+      setIsEditing(false);
+    } else {
+      alert("Please only enter a SINGLE word.");
+    }
   };
   const nextQuestion = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
@@ -266,7 +272,8 @@ const Absent = () => {
             className="w-full place-items-center items-center"
           >
             <p className="text-black text-xl mb-6 mt-3">
-              Find a fourth word that is related to all three of the following:
+            Find a single word that connects to all three of the
+            following:
             </p>
             <div
               className="mb-4 items-center grid grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"

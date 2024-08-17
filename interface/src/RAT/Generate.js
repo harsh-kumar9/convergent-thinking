@@ -114,10 +114,16 @@ const Generate = () => {
     setShuffled(true);
   }, []);
   const handleSubmit = (e) => {
-    // e is short for event
     e.preventDefault(); // prevents page from refreshing upon clicking submit
-    setIdea(input);
-    setIsEditing(false);
+  
+    // Check if input is a single word
+    const word = input.trim();
+    if (word.split(" ").length === 1) {
+      setIdea(word);
+      setIsEditing(false);
+    } else {
+      alert("Please only enter a SINGLE word.");
+    }
   };
   const nextQuestion = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
