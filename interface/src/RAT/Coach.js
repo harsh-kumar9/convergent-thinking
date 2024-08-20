@@ -102,7 +102,7 @@ const Coach = () => {
   //   setShuffled(true);
   // }, []);
   setPromptCopy(() => {
-    const shuffledList = shuffleArray(pilotRAT);
+    const shuffledList = shuffleArray(easyRAT);
     return [
       shuffledList[0],
       shuffledList[0],
