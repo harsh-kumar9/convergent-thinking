@@ -272,7 +272,7 @@ const Absent = () => {
             className="w-full place-items-center items-center"
           >
             <p className="text-black text-xl mb-6 mt-3">
-            Find a single word that connects to all three of the
+            Find a single word that connects all three of the
             following:
             </p>
             <div

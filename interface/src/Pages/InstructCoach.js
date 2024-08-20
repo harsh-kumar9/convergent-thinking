@@ -118,8 +118,8 @@ const InstructCoach = () => {
           ].map((item) => item)}
         </o1>
         <p className="text-2xl mb-8">
-          Write down only the fourth word (i.e., "book" and "ice") as your
-          answers. You will have 2 minutes for each task. Once you click submit,
+        <bold>Write down only the fourth word (i.e., "book" for the first set of words, and "ice" for the second set of words) as your
+          answers.</bold> You will have 1 minute for each task. Once you click submit,
           you will not be able to change your answer. There will be 3 practice
           rounds, followed by a short break, then 1 test round.
         </p>
