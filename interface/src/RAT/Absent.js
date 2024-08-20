@@ -288,7 +288,7 @@ const Absent = () => {
                 <div className="float-right">
                   <input
                     type="text"
-                    placeholder="Enter your idea.."
+                    placeholder="Enter your answer.."
                     value={input}
                     className="p-1 h-2/3 text-lg mr-4"
                     onPaste={preventDefaultAction}
