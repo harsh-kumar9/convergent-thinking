@@ -5,7 +5,7 @@ import statistics
 from json_repair import repair_json
 
 # Load the CSV file
-file_path = "output.csv"
+file_path = "pilot2.csv"
 df = pd.read_csv(file_path)
 
 # Filter the DataFrame to keep only the rows with the 'data' variable
