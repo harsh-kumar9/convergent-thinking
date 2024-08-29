@@ -109,6 +109,7 @@ const Absent = () => {
         shuffledList[2],
         "dummy",
         shuffledList[3],
+        shuffledList[4],
       ];
     });
     setShuffled(true);
@@ -144,7 +145,7 @@ const Absent = () => {
         });
       }
     }
-    if (promptId === 5) {
+    if (promptId === 6) {
       addData({ HideTime: outOfFocusTime });
       navigate("/convergent-thinking/feedback");
     } else {
@@ -180,7 +181,7 @@ const Absent = () => {
 
   useEffect(() => {
     if (time === 0) {
-      if (promptId === 5) {
+      if (promptId === 6) {
         if (idea == "" || isEditing) {
           setOutofTime(true);
         } else {
