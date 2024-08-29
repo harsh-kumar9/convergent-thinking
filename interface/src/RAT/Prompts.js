@@ -50,7 +50,6 @@ export const easyRAT = [
   ["mouse", "bear", "sand", "trap"],
   ["widow", "bite", "monkey", "spider"],
   ["gold", "stool", "tender", "bar"],
-  ["time", "hair", "stretch", "long"],
   ["trap", "back", "screen", "door"],
 ];
 export const mediumRAT = [
@@ -93,4 +92,4 @@ export const pilotRAT = [
   ["trap", "back", "screen", "door"],
   ["print", "berry", "bird", "blue"],
   ["peach", "arm", "tar", "pit"],
-]
+];

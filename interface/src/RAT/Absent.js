@@ -85,23 +85,23 @@ const Absent = () => {
     };
 
     // Set the randomized list in the state during component mount or refresh
-  //   setPromptCopy(() => {
-  //     const shuffledEasy = shuffleArray(easyRAT);
-  //     const shuffledMedium = shuffleArray(mediumRAT);
-  //     const shuffledHard = shuffleArray(hardRAT);
-  //     const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
-  //     const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
-  //     return [
-  //       shuffledEasy[3],
-  //       ...shuffleArray(trialArray),
-  //       "dummy",
-  //       shuffleArray(testArray)[0],
-  //     ];
-  //   });
-  //   setShuffled(true);
-  // }, []);
+    //   setPromptCopy(() => {
+    //     const shuffledEasy = shuffleArray(easyRAT);
+    //     const shuffledMedium = shuffleArray(mediumRAT);
+    //     const shuffledHard = shuffleArray(hardRAT);
+    //     const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
+    //     const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
+    //     return [
+    //       shuffledEasy[3],
+    //       ...shuffleArray(trialArray),
+    //       "dummy",
+    //       shuffleArray(testArray)[0],
+    //     ];
+    //   });
+    //   setShuffled(true);
+    // }, []);
     setPromptCopy(() => {
-      const shuffledList = shuffleArray(easyRAT);
+      const shuffledList = shuffleArray(easyRAT.concat(mediumRAT));
       return [
         shuffledList[0],
         shuffledList[0],
@@ -115,7 +115,7 @@ const Absent = () => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
-  
+
     // Check if input is a single word
     const word = input.trim();
     if (word.split(" ").length === 1) {
@@ -150,7 +150,7 @@ const Absent = () => {
     } else {
       setPromptId(promptId + 1);
       // reset states and timer
-      console.log(promptId)
+      console.log(promptId);
       if (promptId === 3) {
         setTime(60);
       } else {
@@ -243,7 +243,7 @@ const Absent = () => {
                 </span>
               </div>
             </div>
-          ) : (idea == "" || isEditing)? (
+          ) : idea == "" || isEditing ? (
             <div className="flex justify-center place-items-center mb-4 mt-8">
               <span
                 style={{
@@ -272,8 +272,7 @@ const Absent = () => {
             className="w-full place-items-center items-center"
           >
             <p className="text-black text-xl mb-6 mt-3">
-            Find a single word that connects all three of the
-            following:
+              Find a single word that connects all three of the following:
             </p>
             <div
               className="mb-4 items-center grid grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
@@ -284,7 +283,7 @@ const Absent = () => {
                 {promptCopy[promptId][2]}
               </h2>
 
-              {(idea === "" || isEditing)? (
+              {idea === "" || isEditing ? (
                 <div className="float-right">
                   <input
                     type="text"
@@ -305,9 +304,7 @@ const Absent = () => {
                   <h2 className="text-black underline text-4xl pr-100 p-1">
                     {idea}
                   </h2>
-                  <button
-                    onClick={() => setIsEditing(true)}
-                  >✏️</button>
+                  <button onClick={() => setIsEditing(true)}>✏️</button>
                 </div>
               ) : (
                 <div className="flex flex-1 justify justify-end pt-2 pb-2">
@@ -319,7 +316,8 @@ const Absent = () => {
               <div className="place-items-center items-center"></div>
             </div>
           </form>
-          {((time > 0 || idea === "" || isEditing) && promptId <= 4) || (promptId > 4 && (idea === "" || isEditing))? (
+          {((time > 0 || idea === "" || isEditing) && promptId <= 4) ||
+          (promptId > 4 && (idea === "" || isEditing)) ? (
             <div className="place-items-center items-center"></div>
           ) : (
             <div className="text-center place-items-center items-center">
@@ -331,9 +329,7 @@ const Absent = () => {
               />
             </div>
           )}
-          <h2 className="text-black mb-4 text-2xl text-center mt-4">
-             
-          </h2>
+          <h2 className="text-black mb-4 text-2xl text-center mt-4"></h2>
           <div className="p-2"></div>
         </div>
       </div>

@@ -86,37 +86,37 @@ const Coach = () => {
     };
 
     // Set the randomized list in the state during component mount or refresh
-  //   setPromptCopy(() => {
-  //     const shuffledEasy = shuffleArray(easyRAT);
-  //     const shuffledMedium = shuffleArray(mediumRAT);
-  //     const shuffledHard = shuffleArray(hardRAT);
-  //     const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
-  //     const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
-  //     return [
-  //       shuffledEasy[3],
-  //       ...shuffleArray(trialArray),
-  //       "dummy",
-  //       shuffleArray(testArray)[0],
-  //     ];
-  //   });
-  //   setShuffled(true);
-  // }, []);
-  setPromptCopy(() => {
-    const shuffledList = shuffleArray(easyRAT);
-    return [
-      shuffledList[0],
-      shuffledList[0],
-      shuffledList[1],
-      shuffledList[2],
-      "dummy",
-      shuffledList[3],
+    //   setPromptCopy(() => {
+    //     const shuffledEasy = shuffleArray(easyRAT);
+    //     const shuffledMedium = shuffleArray(mediumRAT);
+    //     const shuffledHard = shuffleArray(hardRAT);
+    //     const trialArray = [shuffledEasy[0], shuffledMedium[0], shuffledHard[0]];
+    //     const testArray = [shuffledEasy[1], shuffledMedium[1], shuffledHard[1]];
+    //     return [
+    //       shuffledEasy[3],
+    //       ...shuffleArray(trialArray),
+    //       "dummy",
+    //       shuffleArray(testArray)[0],
+    //     ];
+    //   });
+    //   setShuffled(true);
+    // }, []);
+    setPromptCopy(() => {
+      const shuffledList = shuffleArray(easyRAT.concat(mediumRAT));
+      return [
+        shuffledList[0],
+        shuffledList[0],
+        shuffledList[1],
+        shuffledList[2],
+        "dummy",
+        shuffledList[3],
       ];
     });
     setShuffled(true);
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault(); // prevents page from refreshing upon clicking submit
-  
+
     // Check if input is a single word
     const word = input.trim();
     if (word.split(" ").length === 1) {
@@ -246,7 +246,7 @@ const Coach = () => {
                   </span>
                 </div>
               </div>
-            ) : idea == "" || isEditing? (
+            ) : idea == "" || isEditing ? (
               <div className="flex justify-center place-items-center mb-4 mt-8">
                 <span
                   style={{
@@ -274,8 +274,7 @@ const Coach = () => {
               className="w-full place-items-center items-center"
             >
               <p className="text-black text-xl mb-6 mt-3">
-              Find a single word that connects all three of the
-              following:
+                Find a single word that connects all three of the following:
               </p>
               <div
                 className="mb-4 items-center grid grid-cols-2 place-items-center auto-cols-min rounded-xl px-3"
@@ -285,7 +284,7 @@ const Coach = () => {
                   {promptCopy[promptId][0]} / {promptCopy[promptId][1]} /{" "}
                   {promptCopy[promptId][2]}
                 </h2>
-                {idea === ""  || isEditing? (
+                {idea === "" || isEditing ? (
                   <div className="float-right">
                     <input
                       type="text"
@@ -306,9 +305,7 @@ const Coach = () => {
                     <h2 className="text-black underline text-4xl pr-100 p-1">
                       {idea}
                     </h2>
-                    <button
-                    onClick={() => setIsEditing(true)}
-                  >✏️</button>
+                    <button onClick={() => setIsEditing(true)}>✏️</button>
                   </div>
                 ) : (
                   <div className="flex flex-1 justify justify-end pt-2 pb-2">
@@ -319,7 +316,7 @@ const Coach = () => {
                 )}
               </div>
             </form>
-            {idea === "" || isEditing? (
+            {idea === "" || isEditing ? (
               <div className="place-items-center items-center"></div>
             ) : (
               <div className="text-center place-items-center items-center">
@@ -367,7 +364,7 @@ const Coach = () => {
                   </span>
                 </div>
               </div>
-            ) : idea == "" || isEditing? (
+            ) : idea == "" || isEditing ? (
               <div className="flex justify-center place-items-center mb-4 mt-8">
                 <span
                   style={{
@@ -427,9 +424,7 @@ const Coach = () => {
                     <h2 className="text-black underline text-4xl pr-100 p-1">
                       {idea}
                     </h2>
-                    <button
-                    onClick={() => setIsEditing(true)}
-                  >✏️</button>
+                    <button onClick={() => setIsEditing(true)}>✏️</button>
                   </div>
                 ) : (
                   <div className="flex flex-1 justify justify-end pt-2 pb-2">
@@ -440,7 +435,7 @@ const Coach = () => {
                 )}
               </div>
             </form>
-            {time > 0 || idea === "" || isEditing? (
+            {time > 0 || idea === "" || isEditing ? (
               <div className="place-items-center items-center"></div>
             ) : (
               <div className="text-center place-items-center items-center">
@@ -454,6 +449,10 @@ const Coach = () => {
             )}
             <h2 className="text-black mb-4 text-2xl text-center mt-4">
               Here are some ideas generated by AI
+            </h2>
+            <h2 className="text-black mb-4 text-2xl text-center mt-4">
+              Note: You are allowed to freely use the following AI suggestion
+              for your answers.
             </h2>
             {/* <text className="text-black  text-lg mb-4 ml-4">
                         Alternative uses generated by GPT-4

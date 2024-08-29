@@ -19,6 +19,7 @@ response_columns = [
     "item_name",
     "response",
     "onTime",
+    "is_correct",
 ]
 responses_df = pd.DataFrame(columns=response_columns)
 
@@ -88,6 +89,7 @@ for row_id in data_rows.index:
             "item_name": item_name,
             "response": response,
             "onTime": onTime,
+            "is_correct": item_name.lower() == response.lower(),
         }
         df_dictionary = pd.DataFrame([d])
         responses_df = pd.concat([responses_df, df_dictionary], ignore_index=True)
