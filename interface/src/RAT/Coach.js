@@ -231,7 +231,7 @@ const Coach = () => {
                   <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
                     {promptId < 4
                       ? practice.concat(" ", promptId.toString(), "/3")
-                      : test.concat(" ", (promptId - 4).toString(), "/1")}
+                      : test.concat(" ", (promptId - 4).toString(), "/2")}
                   </span>
                 </div>
                 <div></div>
@@ -322,7 +322,7 @@ const Coach = () => {
             ) : (
               <div className="text-center place-items-center items-center">
                 <input
-                  value="FINISH TASK"
+                  value="CONTINUE"
                   type="button"
                   onClick={nextQuestion}
                   className="text-black text-center bg-green-400 outline outline-2 rounded-md font-bold text-xxl p-1 pl-2 hover:bg-slate-100"
@@ -349,7 +349,7 @@ const Coach = () => {
                   <span className="text-black col-start-1 w-fit outline outline-1 rounded-lg text-xl p-1">
                     {promptId < 4
                       ? practice.concat(" ", promptId.toString(), "/3")
-                      : test.concat(" ", (promptId - 4).toString(), "/1")}
+                      : test.concat(" ", (promptId - 4).toString(), "/2")}
                   </span>
                 </div>
                 <div></div>
