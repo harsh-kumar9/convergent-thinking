@@ -26,7 +26,7 @@ const Feedback = () => {
   const [q7, setq7] = useState("");
   const submitData = async (data) => {
     try {
-      console.log("attempt")
+      console.log("attempt");
       const response = await axios.post(
         "https://creative-gpt.azurewebsites.net/api/httptrigger2?code=SfnloefDXU04OK8Ao4QAvrwDRNIBeoDKWmco5VKt33xSAzFukmwSbw%3D%3D",
         data,
@@ -38,17 +38,17 @@ const Feedback = () => {
       );
 
       // Redirect to the Prolific URL
-      console.log("here")
+      console.log("here");
       window.location.href =
         "https://app.prolific.com/submissions/complete?cc=C1EXYXN1";
 
       if (response.status !== 200) {
         console.log("Response not okay");
       }
-      
+
       return response.data;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       console.error("Error submitting data:", error);
       throw error;
     }
@@ -74,7 +74,7 @@ const Feedback = () => {
         q4,
         q6,
         q7,
-        sliderValue
+        sliderValue,
       };
 
       // Optionally, update your application state with new feedback data
@@ -138,7 +138,8 @@ const Feedback = () => {
         {/* Question 1 */}
         <div className="text-2xl flex flex-col mb-4">
           <h2>
-            1. How difficult was it to come up the associated word for the last (test) task?
+            1. How difficult was it to come up the associated word for the last
+            (test) task?
           </h2>
           {/* Options for Question 1 */}
           <label>
@@ -271,7 +272,9 @@ const Feedback = () => {
           </label>
         </div>
         <div className="text-2xl flex flex-col mb-4">
-          <h2>4. How helpful was the practice round (first three questions)?</h2>
+          <h2>
+            4. How helpful was the practice round (first three questions)?
+          </h2>
           {/* Options for Question 3 */}
           <label>
             <input
@@ -333,7 +336,7 @@ const Feedback = () => {
         <div className="mb-4">
           <h2 className="text-2xl mb-2">
             6. What was your strategy for coming up with associated word for the
-            last three objects?
+            last two objects?
           </h2>
           <textarea
             name="q6"
@@ -358,7 +361,7 @@ const Feedback = () => {
           ></textarea>
         </div>
         {/* Question 6 */}
-        
+
         {/* Hidden inputs for MTurk */}
         <input type="hidden" name="assignmentId" value={mTurk.assignmentId} />
         <input type="hidden" name="hitId" value={mTurk.hitId} />
