@@ -51,6 +51,7 @@ export const easyRAT = [
   ["widow", "bite", "monkey", "spider"],
   ["gold", "stool", "tender", "bar"],
   ["trap", "back", "screen", "door"],
+  ["hair", "stretch", "time", "long"],
 ];
 export const mediumRAT = [
   ["sense", "courtesy", "place", "common"],
