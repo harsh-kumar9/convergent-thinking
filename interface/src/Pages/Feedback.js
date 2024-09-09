@@ -139,7 +139,7 @@ const Feedback = () => {
         <div className="text-2xl flex flex-col mb-4">
           <h2>
             1. How difficult was it to come up the associated word for the last
-            (test) task?
+            two (test) tasks?
           </h2>
           {/* Options for Question 1 */}
           <label>
@@ -336,7 +336,7 @@ const Feedback = () => {
         <div className="mb-4">
           <h2 className="text-2xl mb-2">
             6. What was your strategy for coming up with associated word for the
-            last two objects?
+            last two tasks?
           </h2>
           <textarea
             name="q6"
